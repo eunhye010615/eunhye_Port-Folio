@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+#side_menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 400px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#side_menu.active {
+  transform: translateX(0);
+}
+
+#side_menu .close_btn {
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+#side_menu .login-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 50px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+#side_menu .login-links a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ff5e7d;
+}
+
+#side_menu h3 {
+  font-size: 20px;
+  color: #ff5e7d;
+  margin-top: 50px;
+}
+
+#side_menu ul {
+  padding-top: 10px;
+}
+
+#side_menu li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#side_menu a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+}
+
+.sns-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding-top: 20px;
+  margin-top: auto;
+  border-top: 1px solid #eee;
+}
+
+.sns-icons a i {
+  font-size: 28px;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.sns-icons a:hover i {
+  color: #ff5e7d;
+}

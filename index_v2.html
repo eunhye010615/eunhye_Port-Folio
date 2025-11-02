@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Etude Mobile App</title>
+
+  <!-- 외부 라이브러리 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css"> <!-- 기본 -->
+  <link rel="stylesheet" href="css/top.css"> <!-- top + 검색 아이콘 -->
+  <link rel="stylesheet" href="css/sidebar.css"> <!-- 측면 메뉴 -->
+  <link rel="stylesheet" href="css/main_content.css"> <!-- Swiper + 상품 페이지 섹션 -->
+  <link rel="stylesheet" href="css/sub_pages.css"> <!-- 상품 + 공지사항 페이지 공통 적용-->
+  <link rel="stylesheet" href="css/login_modal.css"> <!-- 로그인 모달 -->
+  <link rel="stylesheet" href="css/signup.css"> <!-- 회원가입 페이지 -->
+  <link rel="stylesheet" href="css/bottom_nav.css"> <!-- 하단 버튼 -->
+  <link rel="stylesheet" href="css/footer.css">
+  <!-- <link rel="stylesheet" href="css/responsive.css"> --> <!-- 반응형 -->
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="top_wrap">
+      <h1>
+        <a href="index_v2.html" class="nav-btn" data-page="home">
+          <img src="images/index/logo2.png" alt="ETUDE">
+        </a>
+      </h1>
+
+      <ul>
+        <li><a href="#" id="search_toggle"><i class="fas fa-search icon1"></i></a></li>
+        <li><a href="#" id="menu_toggle" class="menu_icon"><i class="fas fa-bars icon1"></i></a></li>
+      </ul>
+    </header>
+
+    <div class="mobile-search-bar">
+      <input type="text" placeholder="검색어를 입력하세요">
+      <div class="recommended-keywords-container">
+        <p>추천 검색어</p>
+        <ul class="recommended-keywords">
+        </ul>
+      </div>
+    </div>
+
+    <main class="page-content" id="home_page">
+    </main>
+
+    <nav id="side_menu">
+      <a href="#" class="close_btn">&times;</a>
+      <div class="login-links">
+        <a href="#" class="login-trigger">로그인</a> | <a href="#" class="nav-btn" data-page="signup_page"
+          data-target="login_modal_overlay">회원가입</a>
+      </div>
+      <h3>카테고리</h3>
+      <ul>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="스킨케어">스킨케어</a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="베이스메이크업">베이스 메이크업</a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="아이메이크업">아이 메이크업</a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="립메이크업">립 메이크업</a></li>
+      </ul>
+      <h3>고객센터</h3>
+      <ul>
+        <li><a href="cs-center.html">공지사항</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">1:1 문의</a></li>
+      </ul>
+      <div class="sns-icons">
+        <a href="https://www.youtube.com/user/etudeblog"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/etudeofficial/"><i class="fab fa-instagram"></i></a>
+        <a href="https://store.kakao.com/etudehouse"><i class="fas fa-comment"></i></a>
+        <a href="https://www.facebook.com/etudeofficial/?locale=ko_KR"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </nav>
+
+    <div id="home_page" class="page-content active">
+      <div class="swiper1 mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url('images/index_v2/banner1.jpg');">
+            <a href="#"></a>
+          </div>
+          <div class="swiper-slide" style="background-image: url('images/index_v2/banner2.jpg');">
+            <a href="#"></a>
+          </div>
+          <div class="swiper-slide" style="background-image: url('images/index_v2/banner3.jpg');">
+            <a href="#"></a>
+          </div>
+          <div class="swiper-slide" style="background-image: url('images/index_v2/banner4.jpg');">
+            <a href="#"></a>
+          </div>
+          <div class="swiper-slide" style="background-image: url('images/index_v2/banner5.jpg');">
+            <a href="#"></a>
+          </div>
+        </div>
+        <div class="swiper-pagination pagination1"></div>
+      </div>
+
+      <ul id="category_menu" class="category_menu">
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="스킨케어"><img
+              src="images/index_v2/skincare.png" alt="스킨케어">
+            <p>스킨케어</p>
+          </a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="베이스메이크업"><img
+              src="images/index_v2/base_makeup.png" alt="베이스메이크업">
+            <p>베이스메이크업</p>
+          </a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="아이메이크업"><img
+              src="images/index_v2/eye_makeup.png" alt="아이메이크업">
+            <p>아이메이크업</p>
+          </a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="립메이크업"><img
+              src="images/index_v2/lip_makeup.png" alt="립메이크업">
+            <p>립메이크업</p>
+          </a></li>
+        <li><a href="#" class="nav-btn" data-page="product_list_page" data-category="뷰티잡화"><img
+              src="images/index_v2/sundries.png" alt="뷰티잡화">
+            <p>뷰티잡화</p>
+          </a></li>
+      </ul>
+
+      <ul id="category_menu2" class="category_menu">
+        <li><a href="#" class="nav-btn"><img src="images/index_v2/gif2.png" alt="선물하기">
+            <p>선물하기</p>
+          </a></li>
+        <li><a href="#" class="nav-btn"><img src="images/index_v2/benefits.png" alt="멤버십/쿠폰">
+            <p>멤버십/쿠폰</p>
+          </a></li>
+        <li><a href="#" class="nav-btn"><img src="images/index_v2/store.png" alt="립메이크업">
+            <p>매장찾기</p>
+          </a></li>
+        <li><a href="#" class="nav-btn"><img src="images/index_v2/style.png" alt="스타일추천">
+            <p>스타일추천</p>
+          </a></li>
+        <li><a href="#" class="nav-btn"><img src="images/index_v2/community.png" alt="커뮤니티">
+            <p>커뮤니티/리뷰</p>
+          </a></li>
+      </ul>
+
+      <section class="video-section">
+        <div id="video">
+          <iframe src="https://www.youtube.com/embed/0oQnm-tctMk?si=B6ewDm1wW_qrzw5v&autoplay=1&mute=1"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <section id="new_products" class="product-section new-products">
+        <h2>💫 New 콜라보 & 신제품</h2>
+        <div class="swiper-container mySwiper_new">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/pl1.png" alt="신제품1">
+                  <button class="wishlist-btn" data-id="new1" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">그림자 쉐딩(2Color/5g)/조효진쉐딩+블링블링스틱 증정</span>
+                  <div class="price-info">
+                    <span class="original-price">28,000원</span>
+                    <span class="discount">14,000원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#조효진쉐딩</span>
+                    <span class="hashtag">#세트상품</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/collab1.png" alt="콜라보1">
+                  <button class="wishlist-btn" data-id="new2" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">플레이 멀티 아이즈 7.5g+오버글로이 틴트3g 2종 세트</span>
+                  <div class="price-info">
+                    <span class="original-price">36,000원</span>
+                    <span class="discount">25,200원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#콜라보</span>
+                    <span class="hashtag">#마루와강쥐</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/collab2.png" alt="콜라보2">
+                  <button class="wishlist-btn" data-id="new3" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">플레이 컬러 아이즈 #레트로스트릿 0.8gX9컬러</span>
+                  <div class="price-info">
+                    <span class="original-price">28,000원</span>
+                    <span class="discount">7,000원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#레트로풍</span>
+                    <span class="hashtag">#감성필터메이크업</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/pl2.png" alt="신상품2">
+                  <button class="wishlist-btn" data-id="new4" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">드로잉 아이 브라우 눈썹 펜슬 0.25g</span>
+                  <div class="price-info">
+                    <span class="original-price">4,000원</span>
+                    <span class="discount">3,200원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#밀착지속</span>
+                    <span class="hashtag">#매끄러운_드로잉</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/collab3.png" alt="콜라보3">
+                  <button class="wishlist-btn" data-id="new5" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">하트팝 블러셔 3.3~4g</span>
+                  <div class="price-info">
+                    <span class="original-price">13,000원</span>
+                    <span class="discount">11,700원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#생기가득</span>
+                    <span class="hashtag">#디자인_리뉴얼</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="related_products" class="product-section related-products">
+        <h2>⭐ 최근 본 상품 & 추천템</h2>
+        <div class="swiper-container mySwiper_related">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/collab2.png" alt="최근본상품1">
+                  <button class="wishlist-btn" data-id="new1" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">플레이 컬러 아이즈 #레트로스트릿 0.8gX9컬러</span>
+                  <div class="price-info">
+                    <span class="original-price">28,000원</span>
+                    <span class="discount">7,000원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#레트로풍</span>
+                    <span class="hashtag">#감성필터메이크업</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/rp1.png" alt="추천템2">
+                  <button class="wishlist-btn" data-id="related2" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">포근 픽싱틴트 4g + 증정 키링
+                  </span>
+                  <div class="price-info">
+                    <span class="original-price">16,000원</span>
+                    <span class="discount">12,800원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#픽싱력값</span>
+                    <span class="hashtag">#블러리</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/rp2.png" alt="추천템2">
+                  <button class="wishlist-btn" data-id="related3" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">원더 포어 프레쉬너 2종 세트 (500ml+250ml)</span>
+                  <div class="price-info">
+                    <span class="original-price">27,500원</span>
+                    <span class="discount">16,500원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#미세먼지닦토</span>
+                    <span class="hashtag">#마일드포뮬러</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/best3.png" alt="최근본상품2">
+                  <button class="wishlist-btn" data-id="related4" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">디어 달링 마커 틴트 3.5g x 2개+미니 파우치 키링 증정</span>
+                  <div class="price-info">
+                    <span class="original-price">22,000원</span>
+                    <span class="discount">16,500원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#립·치크</span>
+                    <span class="hashtag">#소프트블러링</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/collab3.png" alt="최근본상품3">
+                  <button class="wishlist-btn" data-id="related5" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">하트팝 블러셔 3.3~4g</span>
+                  <div class="price-info">
+                    <span class="discount">13,000원</span>
+                    <span class="original-price">11,700원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#생기가득</span>
+                    <span class="hashtag">#디자인_리뉴얼</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="best_sellers" class="product-section best-sellers">
+        <h2>🔥 인기 급상승 & 베스트템</h2>
+        <div class="swiper-container mySwiper_best">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/best1.png" alt="베스트1">
+                  <button class="wishlist-btn" data-id="best1" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">블링블링 아이스틱 1EA</span>
+                  <div class="price-info">
+                    <span class="original-price">6,500원</span>
+                    <span class="discount">5,200원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#발림성값</span>
+                    <span class="hashtag">#밀착력값</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/best2.png" alt="베스트2">
+                  <button class="wishlist-btn" data-id="best2" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">드로잉쇼 브러쉬 라이너 0.6g</span>
+                  <div class="price-info">
+                    <span class="original-price">11,000원</span>
+                    <span class="discount">8,800원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#깔끔픽싱</span>
+                    <span class="hashtag">#이지클렌징</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/best3.png" alt="베스트3">
+                  <button class="wishlist-btn" data-id="best3" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">디어 달링 마커 틴트 3.5g x 2개+미니 파우치 키링 증정</span>
+                  <div class="price-info">
+                    <span class="original-price">22,000원</span>
+                    <span class="discount">16,500원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#립·치크</span>
+                    <span class="hashtag">#소프트블러링</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/best4.png" alt="베스트4">
+                  <button class="wishlist-btn" data-id="best4" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">슈가컬러링 젤리밤 9g</span>
+                  <div class="price-info">
+                    <span class="original-price">16,000원</span>
+                    <span class="discount">12,800원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#올마이티포켓립</span>
+                    <span class="hashtag">#도톰젤리</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/best5.png" alt="베스트5">
+                  <button class="wishlist-btn" data-id="best5" data-type="product">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">글로우 픽싱 틴트 3.8g</span>
+                  <div class="price-info">
+                    <span class="discount">14,000원</span>
+                    <span class="original-price">11,200원</span>
+                  </div>
+                  <div class="hashtags">
+                    <span class="hashtag">#끈적NO</span>
+                    <span class="hashtag">#미끄덩NO</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="style_recommendations" class="product-section style-section custom-style-card">
+        <h2>✨ 이런 스타일은 어떠세요?</h2>
+        <div class="swiper-container mySwiper_style">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide product-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml1.png" alt="스타일1">
+                  <button class="wishlist-btn" data-id="style1" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">밀키 프레소 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#누디뮤트</span>
+                    <span class="hashtag">#무드레이어</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml2.png" alt="스타일2">
+                  <button class="wishlist-btn" data-id="style2" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">벌룬 인 치크 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#뽀용블러치크</span>
+                    <span class="hashtag">#슈가젤리밤</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml3.png" alt="스타일3">
+                  <button class="wishlist-btn" data-id="style3" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">카카오 프렌즈 춘식이룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#소프트핑크톤</span>
+                    <span class="hashtag">#춘식이PICK</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml4.png" alt="스타일4">
+                  <button class="wishlist-btn" data-id="style4" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">우드 브릭 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#힙한</span>
+                    <span class="hashtag">#음영브릭톤</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml5.png" alt="스타일5">
+                  <button class="wishlist-btn" data-id="style4" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">어텀 클로짓 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#소프트음영</span>
+                    <span class="hashtag">#MuteMLBB</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml6.png" alt="스타일6">
+                  <button class="wishlist-btn" data-id="style4" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">클리어베리 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#편안한립스틱</span>
+                    <span class="hashtag">#쌩얼효과2배큰눈</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml7.png" alt="스타일7">
+                  <button class="wishlist-btn" data-id="style4" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">신나는 뚱랑이 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#피치코랄</span>
+                    <span class="hashtag">#생기있고상큼한</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml8.png" alt="스타일8">
+                  <button class="wishlist-btn" data-id="style4" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">나른한 뚱랑이 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#라일락핑크</span>
+                    <span class="hashtag">#나른하고포근한</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml9.png" alt="스타일9">
+                  <button class="wishlist-btn" data-id="style4" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">강남 스트릿 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#시티에디션</span>
+                    <span class="hashtag">#4색팔레트</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide product-card custom-style-card">
+              <a href="#">
+                <div class="image-container">
+                  <img src="images/index_v2/ml10.png" alt="스타일10">
+                  <button class="wishlist-btn" data-id="style5" data-type="style">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="info">
+                  <span class="product-name">로아커 바닐라 룩</span>
+                  <div class="hashtags">
+                    <span class="hashtag">#뉴트럴베이지</span>
+                    <span class="hashtag">#로아커</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="liked_page" class="page-content">
+      <header class="sub-page-header">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
+        <h2>좋아요</h2>
+      </header>
+      <div class="sub-page-section">
+        <section class="liked-products-section">
+          <h3>찜한 상품</h3>
+          <div class="swiper-container liked-products-swiper">
+            <div id="liked_products_list" class="swiper-wrapper"></div>
+          </div>
+        </section>
+        <section class="liked-styles-section">
+          <h3>찜한 스타일</h3>
+          <div class="swiper-container liked-styles-swiper">
+            <div id="liked_styles_list" class="swiper-wrapper"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div id="product_list_page" class="page-content">
+      <header class="sub-page-header">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
+        <h2 id="product_category_title"></h2>
+      </header>
+      <div class="product-list-banner">
+        <h3>네일에서 많이 본 상품들이에요</h3>
+        <p>이번 시즌 트렌드를 반영한 인기 상품들을 만나보세요.</p>
+      </div>
+      <div class="sub-page-section">
+        <div class="product-grid" id="product_list_container">
+        </div>
+      </div>
+    </div>
+
+    <div id="notifications_page" class="page-content">
+      <header class="sub-page-header">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
+        <h2>알림</h2>
+      </header>
+      <div class="sub-page-section">
+        <div class="notification-item">
+          <img src="images/notifications/notification1.jpg" alt="새로운 콜라보 배너">
+          <div class="text-content">
+            <h4>🎁 11월 한정 콜라보!</h4>
+            <p>두근거리는 연말 메이크업을 에뛰드와 함께 하세요! 11월 1일 ~ 11월 30일까지 2만원 이상 구매 시 특별 한정 틴트 증정!</p>
+          </div>
+        </div>
+        <div class="notification-item">
+          <img src="images/notifications/notification2.jpg" alt="회원 등급 혜택 배너">
+          <div class="text-content">
+            <h4>💰 에뛰드 멤버십 혜택 안내</h4>
+            <p>회원님! 이번 달 등급 혜택을 확인하세요. 등급별 할인 쿠폰이 발급되었습니다.</p>
+          </div>
+        </div>
+        <div class="notification-item">
+          <img src="images/notifications/notification3.jpg" alt="신상품 출시 알림">
+          <div class="text-content">
+            <h4>✨ 신상 출시 알림!</h4>
+            <p>반짝이는 눈을 위한 글리터 섀도우가 출시되었습니다. 11/15까지 구매 시 10% 추가 할인 혜택을 놓치지 마세요!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="signup_page" class="page-content">
+      <header class="sub-header-with-title">
+        <a href="#" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+        <h1>회원정보 입력</h1>
+      </header>
+
+      <div class="signup-container">
+        <p class="description-text">회원정보를 입력하고 가입을 완료하세요.</p>
+        <form id="signup-form">
+          <div class="input-group">
+            <input type="text" id="name" placeholder="이름을 입력하세요">
+          </div>
+          <div class="input-group">
+            <input type="text" id="birth" placeholder="생년월일 6자리 (예: 950101)">
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" placeholder="이메일(아이디) 입력">
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" placeholder="비밀번호 입력">
+          </div>
+          <div class="input-group">
+            <input type="password" id="password_confirm" placeholder="비밀번호 확인">
+          </div>
+
+          <div class="terms-section">
+            <div class="term-item">
+              <input type="checkbox" id="all-agree">
+              <label for="all-agree">전체 동의</label>
+            </div>
+            <div class="term-list">
+              <div class="term-item">
+                <input type="checkbox" id="term1">
+                <label for="term1">(필수) 이용약관 동의</label>
+              </div>
+              <div class="term-item">
+                <input type="checkbox" id="term2">
+                <label for="term2">(필수) 개인정보 수집 및 이용 동의</label>
+              </div>
+              <div class="term-item">
+                <input type="checkbox" id="term3">
+                <label for="term3">(선택) 마케팅 정보 수신 동의</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">가입 완료</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content-mobile">
+        <div class="info-group">
+          <p class="font-bold" data-translate-key="brand_name">에뛰드하우스</p>
+          <p><strong data-translate-key="company_name">씨제이올리브영 주식회사</strong> | <strong
+              data-translate-key="ceo_name">대표이사:</strong> 이선정</p>
+          <p><strong data-translate-key="address_label">주소:</strong> 서울특별시 중구 한강대로 372, 24층</p>
+          <p><strong data-translate-key="biz_reg_label">사업자등록번호:</strong> 809-81-01574</p>
+          <p><strong data-translate-key="ecom_label">통신판매업신고:</strong> 2019-서울용산-1628</p>
+        </div>
+
+        <div class="contact-group">
+          <p class="font-bold" data-translate-key="cs_center_label">고객센터 <a href="tel:1588-1234"
+              class="tel-link">1588-1234</a></p>
+          <p data-translate-key="cs_hours">운영시간: 평일 09:00 ~ 18:00 (유료)</p>
+        </div>
+
+        <div class="language-switcher">
+          <span class="lang-label">언어:</span>
+          <button id="lang-ko" class="lang-btn active">한국어</button>
+          <button id="lang-en" class="lang-btn">English</button>
+        </div>
+
+        <div class="legal-group">
+          <a href="#" class="font-bold" style="color:#fff;" data-translate-key="terms">이용약관</a>
+          <span class="divider">|</span>
+          <a href="#" class="font-bold" style="color:#fff;" data-translate-key="privacy_policy">개인정보처리방침</a>
+          <span class="divider">|</span>
+          <a href="#" class="font-bold" style="color:#fff;" data-translate-key="biz_info">사업자정보 확인</a>
+        </div>
+      </div>
+
+      <p class="copyright" data-translate-key="copyright_info">&copy; ETUDE CORPORATION. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <a href="#wrap" class="top_btn"><i class="fas fa-arrow-up"></i></a>
+  </div>
+
+  <nav id="bottom_nav">
+    <ul>
+      <li><a href="#" class="nav-btn active" data-page="home"><i class="fas fa-home"></i><span>홈</span></a></li>
+      <li><a href="#" class="cart-trigger"><i class="fas fa-shopping-cart"></i><span>장바구니</span></a></li>
+      <li><a href="#" class="nav-btn" data-page="notifications_page"><i class="fas fa-bell"></i><span>알림</span></a>
+      </li>
+      <li><a href="#" class="nav-btn" data-page="liked_page"><i class="fas fa-heart"></i><span>좋아요</span></a></li>
+      <li><a href="#" class="login-trigger"><i class="fas fa-user"></i><span>마이페이지</span></a></li>
+    </ul>
+  </nav>
+
+  <div id="login_modal_overlay">
+    <div id="login_modal_content">
+      <a href="#" class="close_modal_btn">&times;</a>
+      <h3>로그인</h3>
+      <form id="login_form">
+        <div class="input-group">
+          <label for="username">아이디</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">로그인</button>
+      </form>
+
+      <div class="sns-login">
+        <div style="font-size: 14px; color: #999; margin-bottom: 10px;">SNS 계정으로 간편 로그인</div>
+        <div class="sns-icons">
+          <a href="#" class="kakao"><i class="fas fa-comment"></i></a>
+          <a href="#" class="naver"><i class="fas fa-blog"></i></a>
+          <a href="#" class="google"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+
+      <div class="signup-link">
+        아직 회원이 아니신가요? <a href="#" class="nav-btn" data-page="signup_page" data-target="login_modal_overlay">회원가입하기</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/index_v2.js"></script>
+</body>
+
+</html>

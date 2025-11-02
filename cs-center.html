@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>고객센터</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* 기본 스타일 */
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 750px;
+      /* 최대 너비 설정 */
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      z-index: 100;
+    }
+
+    .back-btn {
+      font-size: 26px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .back-btn a {
+      text-decoration: none;
+      /* 이 코드가 밑줄을 제거합니다. */
+      color: #333;
+      /* 링크 색상도 원하는 대로 변경 가능 */
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 auto;
+      color: #333;
+    }
+
+    .content {
+      padding: 25px;
+      flex-grow: 1;
+    }
+
+    .search-container {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 14px 48px 14px 22px;
+      border: 1px solid #e0e0e0;
+      border-radius: 28px;
+      font-size: 15px;
+      box-sizing: border-box;
+      background-color: #f5f5f5;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      cursor: pointer;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #555;
+      margin: 0;
+    }
+
+    .more-link {
+      text-decoration: none;
+      color: #999;
+      font-size: 13px;
+    }
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    .quick-link-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 0;
+      border: 1px solid #e0e0e0;
+      border-radius: 11px;
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .quick-link-item:hover {
+      transform: scale(1.03);
+      background-color: #f7f7f7;
+      cursor: pointer;
+    }
+
+    .quick-link-item .icon {
+      font-size: 28px;
+      margin-bottom: 9px;
+      color: #666;
+      transition: color 0.2s;
+    }
+
+    .quick-link-item:hover .icon {
+      color: #ff5e7d;
+    }
+
+    .list-section {
+      padding-bottom: 35px;
+    }
+
+    .list-section h2 {
+      border-left: 4px solid #ff5e7d;
+      padding-left: 11px;
+    }
+
+    .notice-list,
+    .faq-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list-item {
+      padding: 18px 0;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .list-item:hover {
+      background-color: #fffafc;
+      transform: translateY(-2px);
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 11px;
+      color: #fff;
+      margin-right: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .label.general {
+      background-color: #999;
+    }
+
+    .label.event {
+      background-color: #ff5e7d;
+    }
+
+    .list-text {
+      flex-grow: 1;
+    }
+
+    .list-text p {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .list-date {
+      font-size: 13px;
+      color: #999;
+      margin-top: 6px;
+    }
+
+    .faq-item {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .faq-item h3 {
+      font-size: 15px;
+      margin: 0;
+      display: inline;
+    }
+
+    .faq-item .list-text::before {
+      content: 'Q. ';
+      color: #ff5e7d;
+      font-weight: bold;
+      display: inline;
+    }
+
+    footer {
+      padding: 25px;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+    }
+
+    .contact-info {
+      background-color: #fffafc;
+      border: 1px solid #ffe0eb;
+      border-radius: 11px;
+      padding: 22px;
+      margin-bottom: 22px;
+    }
+
+    .contact-info .number {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff5e7d;
+      margin-bottom: 6px;
+    }
+
+    .contact-info .hours {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 12px;
+    }
+
+    .contact-btn {
+      flex-grow: 1;
+      padding: 11px;
+      border-radius: 9px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.chat {
+      background-color: #10b981;
+      color: #fff;
+    }
+
+    .contact-btn.inquiry {
+      background-color: #f3f4f6;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <span class="back-btn"><a href="index_v2.html"><i class="fas fa-arrow-left"></i></a></span>
+      <h1>고객센터</h1>
+    </header>
+
+    <div class="content-wrapper">
+      <div class="main-content">
+        <div class="content">
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="궁금한 내용을 검색해 보세요.">
+            <span class="search-icon" onclick="performSearch()">&#x1F50D;</span>
+          </div>
+
+          <div class="list-section">
+            <div class="section-header">
+              <h2>빠른 문의</h2>
+            </div>
+            <div class="quick-links-grid">
+              <div class="quick-link-item">
+                <span class="icon">📦</span>
+                배송문의
+              </div>
+              <div class="quick-link-item">
+                <span class="icon">🔄</span>
+                취소/반품
+              </div>
+              <div class="quick-link-item">
+                <span class="icon">💰</span>
+                결제문의
+              </div>
+              <div class="quick-link-item">
+                <span class="icon">🏷️</span>
+                회원/등급
+              </div>
+              <div class="quick-link-item">
+                <span class="icon">🛒</span>
+                온라인몰
+              </div>
+              <div class="quick-link-item">
+                <span class="icon">🏪</span>
+                매장문의
+              </div>
+            </div>
+          </div>
+
+          <div class="list-section">
+            <div class="section-header">
+              <h2>공지사항</h2>
+              <a href="#" class="more-link">더보기 &gt;</a>
+            </div>
+            <ul class="notice-list">
+              <li class="list-item">
+                <span class="label general">일반</span>
+                <div class="list-text">
+                  <p>올리브영 대구반월당점 리로케이션으로 인한 영업 중단 안내</p>
+                  <span class="list-date">2025.09.13</span>
+                </div>
+              </li>
+              <li class="list-item">
+                <span class="label event">이벤트</span>
+                <div class="list-text">
+                  <p>8월 W Summer 키트 당첨자 발표_성명 ㅂ~ㅎ</p>
+                  <span class="list-date">2025.09.12</span>
+                </div>
+              </li>
+              <li class="list-item">
+                <span class="label event">이벤트</span>
+                <div class="list-text">
+                  <p>8월 W Summer 키트 당첨자 발표_성명 ㄱ~ㅁ</p>
+                  <span class="list-date">2025.09.12</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="list-section">
+            <div class="section-header">
+              <h2>자주 묻는 질문</h2>
+              <a href="#" class="more-link">더보기 &gt;</a>
+            </div>
+            <ul class="faq-list">
+              <li class="list-item faq-item">
+                <div class="list-text">
+                  <h3>비밀번호를 잊어버렸어요.</h3>
+                </div>
+              </li>
+              <li class="list-item faq-item">
+                <div class="list-text">
+                  <h3>결제 취소는 어떻게 하나요?</h3>
+                </div>
+              </li>
+              <li class="list-item faq-item">
+                <div class="list-text">
+                  <h3>배송은 얼마나 걸리나요?</h3>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="contact-info">
+          <p class="number">1577-4887</p>
+          <p class="hours">
+            일반문의: 09:00 ~ 18:00 (평일)<br>
+            오늘드림: 09:00 ~ 23:00 (평일, 주말)
+          </p>
+        </div>
+        <div class="contact-buttons">
+          <div class="contact-btn chat">💬 채팅 상담</div>
+          <div class="contact-btn inquiry">✏️ 1:1 문의</div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function performSearch() {
+      const searchInput = document.getElementById('searchInput');
+      const keyword = searchInput.value;
+      if (keyword) {
+        alert(`"${keyword}"로 검색합니다.`);
+        // 실제 검색 페이지로 이동하는 코드나 API 호출 코드를 여기에 추가할 수 있습니다.
+      } else {
+        alert("검색어를 입력해 주세요.");
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+@charset "utf-8";
+
+/* ======================================================
+PC 우선 반응형 CSS (데스크탑 -> 태블릿 -> 모바일)
+====================================================== */
+
+/* PC (1462px 이상) - 기본 스타일로 설정 */
+@media (min-width: 1462px) {
+  #top_wrap h1 img {
+    height: 60px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  /* PC에서는 swiper 높이 100vh가 아닌 고정값으로 설정 */
+  .swiper1 {
+    height: 600px;
+  }
+
+  #category_menu i {
+    font-size: 44px;
+  }
+
+  .product-section .swiper-container .swiper-slide {
+    width: calc((100% - 120px) / 5);
+  }
+
+  .product-card .image-container img {
+    height: 280px;
+  }
+
+  .product-card .product-name {
+    font-size: 20px;
+  }
+
+  .product-card .price-info .discount {
+    font-size: 20px;
+  }
+
+  .product-section .swiper-container {
+    overflow: hidden;
+  }
+
+  #top_wrap #search_toggle {
+    display: none;
+    /* PC에서는 검색 아이콘 숨김 */
+  }
+
+  .desktop-search-bar {
+    display: flex;
+  }
+
+  #bottom_nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+
+  footer {
+    padding-bottom: 30px;
+    /* 하단바만큼 패딩 삭제 */
+  }
+
+  footer .footer-content-pc {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  footer .footer-content-pc .info-col,
+  footer .footer-content-pc .links-col {
+    flex: 1;
+  }
+
+  footer .footer-content-pc .links-col ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  footer .footer-content-pc .info-col {
+    flex-basis: 60%;
+  }
+}
+
+/* ====================================================== */
+/* 노트북 & 태블릿 (751px ~ 1461px) */
+/* ====================================================== */
+@media (max-width: 1461px) and (min-width: 751px) {
+  #wrap {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  #top_wrap {
+    padding: 12px 15px;
+  }
+
+  #top_wrap h1 img {
+    height: 45px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  /* 태블릿에서는 swiper 높이를 500px로 조정 */
+  .swiper1 {
+    height: 500px;
+  }
+
+  .swiper-pagination.pagination1 {
+    font-size: 14px;
+  }
+
+  #category_menu i {
+    font-size: 36px;
+  }
+
+  .product-section .swiper-container .swiper-slide {
+    width: calc((100% - 30px) / 3);
+  }
+
+  .footer-content-pc {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-content-pc .links-col ul {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}
+
+/* ====================================================== */
+/* 모바일 (750px 이하) */
+/* ====================================================== */
+@media (max-width: 750px) {
+  #top_wrap {
+    padding: 10px 15px;
+  }
+
+  #top_wrap h1 img {
+    height: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* 모바일에서는 swiper 높이를 400px로 조정 */
+  .swiper1 {
+    height: 400px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+
+  .swiper-pagination.pagination1 {
+    font-size: 12px;
+    padding: 4px 10px;
+    bottom: 15px;
+  }
+
+  #category_menu i {
+    font-size: 32px;
+  }
+
+  #category_menu a p {
+    font-size: 14px;
+  }
+
+  .product-section {
+    padding: 20px 15px;
+  }
+
+  .product-card .image-container img {
+    height: 200px;
+  }
+
+  .product-card .info {
+    padding: 10px 5px;
+  }
+
+  .product-card .product-name {
+    font-size: 15px;
+  }
+
+  .product-card .price-info .discount {
+    font-size: 15px;
+  }
+
+  .product-card .price-info .original-price {
+    font-size: 13px;
+  }
+
+  .product-card .hashtag {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  .top_btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  footer {
+    padding-bottom: 80px;
+  }
+
+  .product-section .swiper-container .swiper-slide {
+    width: calc((100% - 15px) / 2);
+  }
+
+  .style-section .swiper-slide {
+    width: 70%;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .footer-content-pc {
+    display: none;
+  }
+
+  #top_wrap #search_toggle {
+    display: block;
+    /* 모바일에서 검색 아이콘 표시 */
+  }
+
+  .desktop-search-bar {
+    display: none;
+  }
+
+  .mobile-search-bar {
+    display: none;
+    /* JS로 토글 */
+  }
+
+  #bottom_nav {
+    display: flex;
+  }
+}

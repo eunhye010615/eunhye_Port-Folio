@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <h1 id="introText">Hello!<br>배움의 즐거움을 잃지 않는, 성장하는 <strong>&nbsp;고은혜&nbsp;</strong>디자이너 입니다.</h1>
+    <p class="fade-in-slide-up" data-delay="2.5s">처음 디자인을 만났을 때의 설렘과 즐거움, 늘 간직하겠습니다.<br>
+      그 마음으로, 사용자에게 더 아름답고 특별한 경험을 디자인하겠습니다.
+    </p>
+    <div id="mouse">
+      <div id="wheel"></div>
+    </div>
+  </div>
+
+  <header>
+    <h1 id="logo">Go Eun Hye Portfolio</h1>
+    <ul id="menu">
+      <li>Home</li>
+      <li>Prototype</li>
+      <li>Banner Portfolio</li>
+      <li>Detail Page</li>
+      <li>About Me</li>
+      <li>Contact Me</li>
+    </ul>
+  </header>
+
+  <div id="prototype">
+    <h2>Prototype</h2>
+    <p>Figma를 활용해 제작한 저의 첫 번째 온보딩 프로토타입입니다.<br> 전체 서비스의 과정을 모두 담기보다는, '회원가입'이라는 단일 사용자 여정에 초점을 맞춰 초보 사용자가 겪을 수 있는 불편함을
+      파악하고
+      직관적인 흐름으로 개선하는 데 집중했습니다.<br>
+
+      이 프로토타입은 아이폰 15와 안드로이드 버전을 기반으로 제작되었습니다.<br> 이 작업을 통해 사용자 경험(UX)을 깊이 고민하고, 완성도를 높이기 위해 애정을 담아 작업했습니다. <br> ※ 슬라이드
+      바깥의
+      빈 공간에 마우스를 두시면 3초마다 자동으로 다음 슬라이드(1/2, 2/2)로 전환됩니다. ※</p>
+
+    <ul class="figma-slidebt">
+      <li></li>
+      <li></li>
+    </ul>
+    <div id="figma1" class="figma">
+      <div class="figma_left">
+        <ul class="figma_left_slide">
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="figma_right">
+        <ul class="figma_right_slide">
+          <li>
+            <h3>에이블리 프로토타입</h3>
+            <h4>Based on iPhone 16 Login Page</h4>
+            <h4>참여도 : 100%</h4>
+            <h4>프로토타입 : Figma</h4>
+            <p class="figma_bt1"><a href="https://buly.kr/EI4I2wn">피그마 작업 화면 바로가기</a></p>
+            <p class="figma_bt2"><a href="https://buly.kr/90bYcV0">피그마 프로토타입 바로가기</a></p>
+          </li>
+          <li>
+            <h3>에뛰드 프로토타입</h3>
+            <h4>Based on Android Compact Login Page</h4>
+            <h4>참여도 : 100%</h4>
+            <h4>프로토타입 : Figma</h4>
+            <p class="figma_bt1"><a href="https://buly.kr/881liQm">피그마 작업 화면 바로가기</a></p>
+            <p class="figma_bt2"><a href="https://buly.kr/7QMjnAn">피그마 프로토타입 바로가기</a></p>
+          </li>
+        </ul>
+      </div>
+      <ul id="figma_num">
+        <li id="fnum1">1</li>
+        <li id="fnum2">2</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="banner">
+    <h2>Banner Portfolio</h2>
+    <p>총 11개의 이벤트 페이지를 디자인했습니다.<br> 저의 창의성을 담아 기획부터 제작한 오리지널 디자인 3개를 시작으로, 트렌드를 분석한 클론 디자인 4개, 그리고 여기에 저의 아이디어를 더해 새롭게
+      발전시킨
+      디자인 4개로 구성됩니다.<br> 각 프로젝트의 메인 타이포그래피는 포토샵으로, 나머지 세부 요소는 일러스트와 피그마를 활용해 완성도를 높였습니다.<br>
+
+      각 이미지를 클릭하면 모달 팝업으로 크게 볼 수 있으며, 원본 및 작업 화면도 함께 확인하실 수 있습니다. <br>각 이미지마다 디자인 의도와 상세한 설명을 덧붙였으니, 함께 살펴봐주시면 좋겠습니다.
+    </p>
+
+    <div class="banner-tabs">
+      <button class="tab-btn active" data-tab="original">직접 제작</button>
+      <button class="tab-btn" data-tab="clone">클론 제작</button>
+      <button class="tab-btn" data-tab="clone-plus">클론 + 추가</button>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="slider-container active" id="original">
+        <ul class="slider-list">
+          <li>
+            <img src="banner_design/jjakjeop_1.jpg" alt="직접 제작1"
+              data-original="banner_design/Original_file/orig-jjakjeop_1.jpg" data-work-link="https://buly.kr/4Qns0hY">
+            <p class="slider-caption">5년 전, 카페 관리자로 일하며 직접 제작했던 딸기 시즌 홍보 페이지를 현재의 시각과 <strong>Figma</strong>를 활용하여
+              재해석했습니다. 신선한 딸기 비주얼과 명확한
+              정보 전달에 집중해 고객의 구매 욕구를 자극하고 매장 방문을 유도하는 데 중점을 두었습니다.</p>
+          </li>
+          <li>
+            <img src="banner_design/jjakjeop_2.jpg" alt="직접 제작2"
+              data-original="banner_design/Original_file/orig-jjakjeop_2_jpg" data-work-link="https://buly.kr/D3f04RL">
+            <p class="slider-caption">카페 관리자 시절 직접 기획했던 시그니처 메뉴 홍보물을 <strong>Figma</strong>로 재해석했습니다. 크림 라떼의 매력을 직관적으로
+              전달하고 브랜드의 정체성을 강화하는
+              데 집중한 결과, 고객의 눈길을 사로잡고 재방문을 유도하는 디자인을 완성할 수 있었습니다</p>
+          </li>
+          <li>
+            <img src="banner_design/jjakjeop_3.png" alt="직접 제작3"
+              data-original="banner_design/Original_file/orig-jjakjeop_3.png"
+              data-work-link="images/Process_my-work.png">
+            <p class="slider-caption">기존 디자인을 분석하고 저만의 아이디어로 재해석하여 제작한 홍보물입니다. <strong>Illustrator</strong>를 활용하여 10-20대
+              타겟에 맞춘 강렬한 색감과 스트릿
+              패션 요소를 시각화했습니다. 단순히 원본을 모방하는 것을 넘어선 창작 과정을 보여주기 위해 '직접 제작' 포트폴리오에 이 작업을 포함했습니다.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="slider-container" id="clone">
+        <ul class="slider-list slider-list-clone">
+          <li>
+            <img src="banner_design/clone_1.jpg" alt="클론1" data-original="banner_design/Original_file/orig-clone_1.jpg"
+              data-work-link="https://buly.kr/HHdB3SU">
+            <p class="slider-caption"><strong>Figma</strong>를 활용해 동화적인 컨셉의 '행운의 편지 캠페인' 디자인을 클론했습니다. 아기자기한 일러스트와 부드러운
+              색감을
+              분석하여, 캠페인의 따뜻한
+              의도를 효과적으로 전달하는 방법을 익혔습니다.</p>
+          </li>
+          <li>
+            <img src="banner_design/clone_2.jpg" alt="클론2" data-original="banner_design/Original_file/orig-clone_2.jpg"
+              data-work-link="images/Process_clone.png">
+            <p class="slider-caption"><strong>Illustrator로</strong> 기하학적인 형태와 그라데이션을 사용한 'BIG SALE' 홍보물을 클론했습니다. 과감한
+              레이아웃과
+              색상 조합을 분석하여,
+              시선을
+              사로잡는 트렌디한 디자인 기법을 학습했습니다.</p>
+          </li>
+          <li>
+            <img src="banner_design/clone_3.jpg" alt="클론3" data-original="banner_design/Original_file/orig-clone_3.jpg"
+              data-work-link="https://buly.kr/CskEX4Y">
+            <p class="slider-caption">사용자의 참여를 유도하는 '틀린그림찾기 이벤트' 페이지를 <strong>Figma</strong>로 클론했습니다. 게임 요소를 활용한 재미있는
+              레이아웃과 명확한 정보 전달 방식을
+              분석하여, 이벤트 디자인의 핵심을 파악했습니다.</p>
+          </li>
+          <li>
+            <img src="banner_design/clone_4.jpg" alt="클론4" data-original="banner_design/Original_file/orig-clone_4.jpg"
+              data-work-link="https://buly.kr/FhOME8E">
+            <p class="slider-caption"><strong>Figma</strong>로 대규모 할인 이벤트 페이지의 디자인을 재현했습니다. '50% OFF'와 같은 핵심 정보를 크고 명확하게
+              배치하는 타이포그래피와 과감한
+              색상 사용법을 익혔습니다.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="slider-container" id="clone-plus">
+        <ul class="slider-list slider-list-clone">
+          <li>
+            <img src="banner_design/cloneplus_1.png" alt="클론+추가1"
+              data-original="banner_design/Original_file/orig-cloneplus_1.png" data-work-link="https://buly.kr/EzjKrhH">
+            <p class="slider-caption">기존의 딸기 홍보물을 <strong>Figma</strong>로 참고하여 신선함과 품질을 더 효과적으로 강조하도록 재해석했습니다. 딸기 이미지를
+              더욱
+              생생하고 풍성하게 배치하고,
+              명확한 정보 아이콘을 추가하여 시각적 전달력을 높이는 데 중점을 두었습니다.</p>
+          </li>
+          <li>
+            <img src="banner_design/cloneplus_2.jpg" alt="클론+추가2"
+              data-original="banner_design/Original_file/orig-cloneplus_2.png" data-work-link="https://buly.kr/E79XPNs">
+            <p class="slider-caption">기존의 초성퀴즈 이벤트 홍보물을 <strong>Figma</strong>로 재해석하여 제작했습니다. 원본의 따뜻한 느낌을 유지하면서, 노트와 연필
+              등
+              그래픽 요소를
+              활용해 이벤트의 재미를 더하고, 가독성 높은 레이아웃으로 사용자의 참여율을 높이는 데 중점을 두었습니다.</p>
+          </li>
+          <li>
+            <img src="banner_design/cloneplus_3.jpg" alt="클론+추가3"
+              data-original="banner_design/Original_file/orig-cloneplus_3.jpg" data-work-link="https://buly.kr/3u3aW4Y">
+            <p class="slider-caption"><strong>Figma</strong>를 활용해 기존 올리브영 쿨링 패드 홍보물을 재해석했습니다. 제품의 '쿨링' 효과를 시각적으로 강조하기 위해
+              물방울, 온도계 등 여러
+              아이콘을 추가하여 정보 전달력을 높였습니다.
+            </p>
+          </li>
+          <li>
+            <img src="banner_design/cloneplus_4.jpg" alt="클론+추가4"
+              data-original="banner_design/Original_file/orig-cloneplus_4.png" data-work-link="https://buly.kr/A466qdE">
+            <p class="slider-caption">기존의 웰컴 쿠폰 페이지 원본을 <strong>Figma</strong>로 재해석하여 제작했습니다. 쿠폰 이미지를 달력 형태로 시각화하고,
+              '1+1'
+              문구를 강조해 즉각적인
+              혜택을 부각했습니다. 이를 통해 신규 회원의 가입을 효과적으로 유도하는 데 중점을 두었습니다.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="detail_page">
+    <h2>Detail Page</h2>
+    <p>총 11가지의 상세 페이지를 제작했습니다. 화장품, 가전, 가구, 의류 등 다양한 카테고리의 실제 페이지를 분석하고, 그 결과물을 클론 디자인으로 완성했습니다.<br>
+
+      각 이미지를 클릭하면 새 창에서 제품의 상세 정보를 확인할 수 있습니다.<br> 또한, 제가 작업한 피그마 화면은 다운로드 없이 바로 보거나 파일을 다운로드하여 디자인 과정과 레이아웃을 직접
+      살펴보실 수
+      있습니다.
+
+      <br>* 모든 링크는 2025년 9월 기준이며, 원본 페이지는 시간이 지나면 사라질 수 있습니다. *
+    </p>
+
+    <div class="slider-wrapper" id="detail_slider">
+      <ul class="slider-list">
+        <li>
+          <a href="Detailed_Page/Number_in-Cosmetics/Number_in-Cosmetics.html" target="_blank">
+            <img src="Detailed_Page/Number_in-Cosmetics/Number_in-Cosmetics.png" alt="Number in Cosmetics">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/ETUDE-Tint/ETUDE-Tint.html" target="_blank">
+            <img src="Detailed_Page/ETUDE-Tint/ETUDE-Tint.jpg" alt="ETUDE Tint">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/Philimili-hairclip/Philimili-hairclip.html" target="_blank">
+            <img src="Detailed_Page/Philimili-hairclip/Philimili-hairclip.jpg" alt="Philimili hairclip">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/09WOMEN-Clothing/09WOMEN-Clothing.html" target="_blank">
+            <img src="Detailed_Page/09WOMEN-Clothing/09WOMEN-Clothing.png" alt="09WOMEN Clothing">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/McGahn-Clothing/McGahn-Clothing.html" target="_blank">
+            <img src="Detailed_Page/McGahn-Clothing/McGahn-Clothing.jpg" alt="McGahn Clothing">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/Musinsa_standard-Clothing/Musinsa_standard-Clothing.html" target="_blank">
+            <img src="Detailed_Page/Musinsa_standard-Clothing/Musinsa_standard-Clothing.jpg"
+              alt="Musinsa standard Clothing">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/LIVART-bad/LIVART-bad.html" target="_blank">
+            <img src="Detailed_Page/LIVART-bad/LIVART-bad.jpg" alt="LIVART bad">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/Coupang-Microwave_oven/Coupang-Microwave_oven.html" target="_blank">
+            <img src="Detailed_Page/Coupang-Microwave_oven/Coupang-Microwave_oven.jpg" alt="Coupang Microwave oven">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/Coupang-vacuum/Coupang-vacuum.html" target="_blank">
+            <img src="Detailed_Page/Coupang-vacuum/Coupang-vacuum.jpg" alt="Coupang vacuum">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/LG-Water_purifier/LG-Water_purifier.html">
+            <img src="Detailed_Page/LG-Water_purifier/LG-Water purifier.jpg" alt="LG Water purifier">
+          </a>
+        </li>
+        <li>
+          <a href="Detailed_Page/FOODG-Ganjang gejang/FOODG-Ganjang gejang.html" target="_blank">
+            <img src="Detailed_Page/FOODG-Ganjang gejang/FOODG-Ganjang gejang.jpg" alt="FOODG Ganjang gejang">
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="slider-controls">
+      <button class="prev-btn" data-slider="detail_slider">이전</button>
+      <button class="next-btn" data-slider="detail_slider">다음</button>
+    </div>
+  </section>
+
+  <div class="image-modal" id="imageModal" style="display: none;">
+    <img src="" alt="클릭한 이미지">
+
+    <div class="modal-links-container">
+      <a href="#" id="originalLink" target="_blank">원본 보기</a>
+      <a href="#" id="work-view" target="_blank">작업 화면 보기</a>
+    </div>
+  </div>
+
+  <div id="about_me">
+    <h2>ABOUT ME</h2>
+    <p>배움의 즐거움을 잃지 않는, 성장하는 고은혜 디자이너 입니다.</p>
+    <img src="images/ID_photo.jpg" alt="증명사진" id="photo">
+    <div id="about_box1">
+      <div id="about_box1_left">
+        <h4>LICENSE</h4>
+        <ul>
+          <li>
+            <p>GTQ(그래픽기술자격) 1급</p>
+            <p>2025.05.16</p>
+          </li>
+          <li>
+            <p>GTQI(그래픽기술자격) 1급</p>
+            <p>2025.08.23 응시, 결과 대기 중</p>
+          </li>
+          <li>
+            <p>정보기술자격(ITQ)</p>
+            <p>2012.03.02</p>
+          </li>
+          <li>
+            <p>운전면허 2급</p>
+            <p>2023.05.16</p>
+          </li>
+        </ul>
+      </div>
+      <div id="about_box1_right">
+        <h4>SKILL</h4>
+        <ul>
+          <li>
+            <p>Figma</p>
+            <p>85%</p>
+            <div class="skills_box1">
+              <div class="skills_box2"></div>
+            </div>
+          </li>
+          <li>
+            <p>Photoshop</p>
+            <p>70%</p>
+            <div class="skills_box1">
+              <div class="skills_box2"></div>
+            </div>
+          </li>
+          <li>
+            <p>Illustrator</p>
+            <p>65%</p>
+            <div class="skills_box1">
+              <div class="skills_box2"></div>
+            </div>
+          </li>
+          <li>
+            <p>정보 수집 능력 : <span> 관련 정보 수집 및 분석을 통해, 디자인의 방향성을 수립하는 능력.</span></p>
+            <p>95%</p>
+            <div class="skills_box1">
+              <div class="skills_box2"></div>
+            </div>
+          </li>
+          <li>
+            <p>와이어프레임 & 프로토타이핑 : <span>아이디어를 디자인으로 구체화하고, 서비스의 흐름을 설계하는 능력</span></p>
+            <p>75%</p>
+            <div class="skills_box1">
+              <div class="skills_box2"></div>
+            </div>
+          </li>
+          <li>
+            <p>문제 정의 및 해결 : <span>문제 해결을 통해 최종 결과물로 완성하는 능력</span></p>
+            <p>70%</p>
+            <div class="skills_box1">
+              <div class="skills_box2"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="about_box2">
+      <h4>INTRODUCTION</h4>
+      <p>웹과 모바일을 넘나들며 사람들이 더 편하고 즐겁게 머물 수 있는 경험을 만드는 걸 좋아하는 디자이너 고은혜 입니다. 이번 포트폴리오는 단순히 저의 기술적인 능력을 보여주는 것을 넘어, 웹 디자인에
+        대한 저의 흥미가 어떻게 열정으로 발전했는지를 담아낸 결과물입니다.
+        디자인을 본격적으로 시작한 지는 오래되지 않았지만, 새로운 시도를 즐기고 배움을 두려워하지 않으면서 저만의 색을 조금씩 쌓아가고 있습니다.
+        특히 피그마를 접한 뒤로는 아이디어를 빠르게 시각화하고, 흐름을 정리하며, 하나의 시스템으로 다듬어내는 과정이 무척 재미있었습니다. 덕분에 디자인이 단순히 화면을 꾸미는 일이 아니라, 사용자와 소통하는
+        일이라는 걸 더 깊이 느꼈습니다.
+        아직 성장하는 단계이지만, 열정과 감각만큼은 자신 있게 보여드릴 수 있습니다. 이 포트폴리오에는 그런 저의 시도와 과정들을 담았습니다. 즐겁게 봐주시면 감사하겠습니다.</p>
+    </div>
+  </div>
+
+  <div id="contact">
+    <h3>Contact Me</h3>
+    <ul>
+      <li>
+        <img src="images/icon1.png" alt="call">
+        <h5>Call</h5>
+        <p>010-7393-3710</p>
+      </li>
+      <li>
+        <img src="images/icon2.png" alt="Email">
+        <h5>Email</h5>
+        <p class="email_p">eunhye010615<br>@naver.com</p>
+      </li>
+      <li>
+        <img src="images/icon3.png" alt="KaKao ID">
+        <h5>KaKao ID</h5>
+        <p>e_eun_615</p>
+      </li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Goeunhye UI/UX Portfolio 2025 © All rights reserved. Unauthorized use prohibited.</p>
+    <p>Icons by <a href="https://www.flaticon.com/" target="_blank"></a>Flaticon. Original images © owners, for
+      portfolio reference/comparison.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ===================================================
+      // 1. 헤더 고정 및 페이지 스크롤, 스킬바 애니메이션
+      // ===================================================
+      $(window).scroll(function () {
+        let scrollPosition = $(window).scrollTop();
+        let mainHeight = $('#main').outerHeight();
+        let aboutMeOffset = $('#about_me').offset().top - 300;
+
+        if (scrollPosition >= mainHeight) {
+          $('header').css({
+            'position': 'fixed',
+            'top': '0',
+            'background-color': '#FFC107',
+            'z-index': '999'
+          });
+        } else {
+          $('header').css({
+            'position': 'static',
+            'background-color': '#FFC107'
+          });
+        }
+        if (scrollPosition >= aboutMeOffset) {
+          $('#about_box1_right ul li:nth-child(1) .skills_box2').stop().css({ 'width': '85%' });
+          $('#about_box1_right ul li:nth-child(2) .skills_box2').stop().css({ 'width': '70%' });
+          $('#about_box1_right ul li:nth-child(3) .skills_box2').stop().css({ 'width': '65%' });
+          $('#about_box1_right ul li:nth-child(4) .skills_box2').stop().css({ 'width': '95%' });
+          $('#about_box1_right ul li:nth-child(5) .skills_box2').stop().css({ 'width': '75%' });
+          $('#about_box1_right ul li:nth-child(6) .skills_box2').stop().css({ 'width': '70%' });
+        } else {
+          $('#about_box1_right ul li .skills_box2').stop().css({ 'width': '5%' });
+        }
+      });
+
+      $('#menu > li:nth-child(1)').click(() => {
+        $('body, html').animate({ 'scrollTop': $('#main').offset().top });
+      });
+      $('#menu > li:nth-child(2)').click(() => {
+        $('body, html').animate({ 'scrollTop': $('#prototype').offset().top });
+      });
+      $('#menu > li:nth-child(3)').click(() => {
+        $('body, html').animate({ 'scrollTop': $('#banner').offset().top });
+      });
+      $('#menu > li:nth-child(4)').click(() => {
+        $('body, html').animate({ 'scrollTop': $('#detail_page').offset().top });
+      });
+      $('#menu > li:nth-child(5)').click(() => {
+        $('body, html').animate({ 'scrollTop': $('#about_me').offset().top });
+      });
+      $('#menu > li:nth-child(6)').click(() => {
+        $('body, html').animate({ 'scrollTop': $('#contact').offset().top });
+      });
+
+      // ===================================================
+      // 2. 텍스트 및 스크롤 휠 애니메이션
+      // ===================================================
+
+      // 기존 텍스트 애니메이션 유지
+      const introText = document.getElementById('introText');
+      if (introText) {
+        const nodes = Array.from(introText.childNodes);
+        introText.textContent = '';
+
+        let elementsToAnimate = [];
+
+        nodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const words = node.textContent.trim().split(/\s+/);
+            words.forEach(word => {
+              if (word) {
+                const span = document.createElement('span');
+                span.textContent = word + ' ';
+                elementsToAnimate.push(span);
+              }
+            });
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            elementsToAnimate.push(node);
+          }
+        });
+
+        let cumulativeDelay = 0;
+        elementsToAnimate.forEach((element) => {
+          introText.appendChild(element);
+          const animationDelay = 0.15 + cumulativeDelay;
+          element.style.animationDelay = `${animationDelay}s`;
+
+          if (element.tagName === 'STRONG') {
+            const totalDelay = animationDelay + 1.8;
+            setTimeout(() => {
+              element.classList.add('neon-glow');
+            }, totalDelay * 1000);
+          }
+          cumulativeDelay += 0.15;
+        });
+      }
+
+      // 새로운 페이드 인 & 슬라이드 업 애니메이션 코드 삽입
+      const animateElements = document.querySelectorAll('.fade-in-slide-up');
+
+      animateElements.forEach(el => {
+        const delay = el.getAttribute('data-delay');
+        if (delay) {
+          setTimeout(() => {
+            el.classList.add('is-visible');
+          }, parseFloat(delay) * 1000);
+        }
+      });
+
+
+      function wheelAnimation() {
+        $('#wheel').css({ top: '5px', opacity: 1 })
+          .animate({ top: '20px', opacity: 0 }, 800, wheelAnimation);
+      }
+      wheelAnimation();
+
+      // ===================================================
+      // 3. Figma 슬라이더 (좌/우, 점, 숫자) + 자동 슬라이드 기능
+      // ===================================================
+      const figmaLeft = document.querySelector('.figma_left_slide');
+      const figmaRight = document.querySelector('.figma_right_slide');
+      const indicators = document.querySelectorAll('.figma-slidebt > li');
+      const nums = document.querySelectorAll('#figma_num li');
+      let figmaIndex = 0;
+      const totalSlides = indicators.length;
+
+      function goToFigmaSlide(index) {
+        if (!figmaLeft || !figmaRight) return;
+        figmaLeft.style.transform = `translateX(-${index * 50}%)`;
+        figmaRight.style.transform = `translateX(-${index * 50}%)`;
+        indicators.forEach((ind, i) => {
+          ind.style.width = i === index ? '30px' : '15px';
+          ind.style.backgroundColor = i === index ? '#000' : 'transparent';
+        });
+        nums.forEach((num, i) => num.style.display = i === index ? 'block' : 'none');
+        figmaIndex = index;
+      }
+
+      indicators.forEach((ind, i) => {
+        ind.addEventListener('click', () => goToFigmaSlide(i));
+      });
+
+      // 자동 슬라이드 기능
+      let autoSlideInterval = setInterval(() => {
+        figmaIndex = (figmaIndex + 1) % totalSlides;
+        goToFigmaSlide(figmaIndex);
+      }, 3000);
+
+      // 마우스를 올리면 슬라이드 정지, 벗어나면 다시 시작 (부분적으로만 적용)
+      const slideAreas = document.querySelectorAll('.figma_left_slide, .figma_right_slide');
+      slideAreas.forEach(area => {
+        area.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        area.addEventListener('mouseleave', () => {
+          autoSlideInterval = setInterval(() => {
+            figmaIndex = (figmaIndex + 1) % totalSlides;
+            goToFigmaSlide(figmaIndex);
+          }, 4000);
+        });
+      });
+
+      if (indicators.length > 0) goToFigmaSlide(0);
+
+      // ===================================================
+      // 4. 일반 슬라이더 (배너 & 상세 페이지)
+      // ===================================================
+
+      // 배너 슬라이더
+      const bannerTabBtns = document.querySelectorAll('.tab-btn');
+      const bannerSliderContainers = document.querySelectorAll('#banner .slider-container');
+      bannerTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTabId = btn.getAttribute('data-tab');
+          bannerTabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          bannerSliderContainers.forEach(container => {
+            if (container.id === targetTabId) {
+              container.classList.add('active');
+            } else {
+              container.classList.remove('active');
+            }
+          });
+        });
+      });
+
+      // 상세 페이지 슬라이더
+      const detailSliderList = document.querySelector('#detail_page .slider-list');
+      const detailPrevBtn = document.querySelector('#detail_page .prev-btn');
+      const detailNextBtn = document.querySelector('#detail_page .next-btn');
+      if (detailSliderList && detailPrevBtn && detailNextBtn) {
+        let detailIndex = 0;
+        const detailVisibleCount = 3;
+        const totalDetailItems = detailSliderList.children.length;
+
+        function updateDetailSlider() {
+          const itemStyle = window.getComputedStyle(detailSliderList.children[0]);
+          const itemWidth = detailSliderList.children[0].getBoundingClientRect().width;
+          const marginRight = parseFloat(itemStyle.marginRight);
+          const totalItemWidth = itemWidth + marginRight;
+          detailSliderList.style.transform = `translateX(-${detailIndex * totalItemWidth}px)`;
+          detailPrevBtn.disabled = (detailIndex === 0);
+          detailNextBtn.disabled = (detailIndex >= totalDetailItems - detailVisibleCount);
+        }
+
+        detailPrevBtn.addEventListener('click', () => {
+          if (detailIndex > 0) {
+            detailIndex = Math.max(detailIndex - detailVisibleCount, 0);
+            updateDetailSlider();
+          }
+        });
+
+        detailNextBtn.addEventListener('click', () => {
+          if (detailIndex < totalDetailItems - detailVisibleCount) {
+            const remainingItems = totalDetailItems - (detailIndex + detailVisibleCount);
+            if (remainingItems < detailVisibleCount) {
+              detailIndex = totalDetailItems - detailVisibleCount;
+            } else {
+              detailIndex += detailVisibleCount;
+            }
+            updateDetailSlider();
+          }
+        });
+        updateDetailSlider();
+      }
+
+      // ===================================================
+      // 5. 모달 팝업 (배너 이미지만 해당)
+      // ===================================================
+      const bannerImages = document.querySelectorAll('#banner .slider-list img');
+      const modal = document.getElementById('imageModal');
+      const modalImg = modal?.querySelector('img');
+      const originalLink = document.getElementById('originalLink');
+      const workViewLink = document.getElementById('work-view');
+      if (bannerImages.length > 0 && modal && modalImg) {
+        bannerImages.forEach(img => {
+          img.addEventListener('click', () => {
+            modalImg.src = img.src;
+            const originalSrc = img.getAttribute('data-original');
+            if (originalSrc) {
+              originalLink.href = originalSrc;
+              originalLink.style.display = 'inline-block';
+            } else {
+              originalLink.style.display = 'none';
+            }
+            const workLink = img.getAttribute('data-work-link');
+            if (workLink) {
+              workViewLink.href = workLink;
+              workViewLink.style.display = 'inline-block';
+            } else {
+              workViewLink.style.display = 'none';
+            }
+            modal.style.display = 'flex';
+          });
+        });
+        modal.addEventListener('click', () => {
+          modal.style.display = 'none';
+        });
+        modalImg.addEventListener('click', (event) => {
+          event.stopPropagation();
+        });
+      }
+
+      if (document.querySelector('.tab-btn.active')) {
+        document.querySelector('.tab-btn.active').click();
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+@media (max-width: 759px) {
+
+  #top_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    position: relative;
+  }
+
+  #top_wrap h1 {
+    margin: 0;
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  #top_wrap h1 img {
+    height: 50px;
+  }
+
+  #top_wrap>ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  #top_wrap .icon1 {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .desktop-search-bar,
+  .desktop-nav {
+    display: none;
+  }
+
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #555;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+  }
+
+  .sub-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .sub-page-header h2 {
+    margin: 0;
+  }
+}
+
+.mobile-search-bar {
+  position: absolute;
+  top: 85px;
+  left: 0;
+  width: 100%;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.mobile-search-bar.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-search-bar input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.mobile-search-bar input[type="text"]:focus {
+  border: 1px solid #000;
+}
+
+.recommended-keywords-container {
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+}
+
+.recommended-keywords-container p {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.recommended-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.recommended-keywords li {
+  font-size: 14px;
+  color: #555;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.recommended-keywords li:hover {
+  background-color: #ff5e7d;
+  color: #fff;
+}

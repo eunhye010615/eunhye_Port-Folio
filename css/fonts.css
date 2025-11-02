@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/* Pretendared-Regular */
+@font-face { 
+  font-family: 'Pretendard-Regular';
+  src: url("../fonts/Pretendard-Regular.woff") format("woff"),
+  url("../fonts/Pretendard-Regular.woff2") format("woff2");
+  font-display: swap; 
+};

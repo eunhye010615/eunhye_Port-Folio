@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETUDE</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="top_wrap">
+      <ul>
+        <li>
+          <a href="#" class="menu_icon">
+            <i class="fa-sharp fa-solid fa-bars icon1"></i>
+          </a>
+        </li>
+      </ul>
+      <h1><a href="index.html"><img src="images/index/logo2.png" alt="ETUDE"></a></h1>
+      <ul>
+        <li>
+          <input type="search" placeholder="#픽싱틴트" class="search_btn">
+          <a href="#">
+            <i class="fa-solid fa-magnifying-glass icon1 search"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-bag-shopping icon1"></i></a>
+        </li>
+      </ul>
+    </header> <!-- top_wrap -->
+
+    <!-- Swiper -->
+    <div class="swiper1 mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide1"><a href="#"><img src="images/index/banner1.jpg" alt="banner"></a></div>
+        <div class="swiper-slide slide1"><a href="#"><img src="images/index/banner2.jpg" alt="banner"></a></div>
+        <div class="swiper-slide slide1"><a href="#"><img src="images/index/banner3.jpg" alt="banner"></a></div>
+        <div class="swiper-slide slide1"><a href="#"><img src="images/index/banner4.jpg" alt="banner"></a></div>
+        <div class="swiper-slide slide1"><a href="#"><img src="images/index/banner5.jpg" alt="banner"></a></div>
+      </div>
+      <div class="swiper-pagination pagination1"></div>
+    </div>
+
+    <div id="menu">
+      <ul>
+        <li><a href="#"><img src="images/index/new.png" alt="NEW/BEST">
+            <p>NEW</p>
+          </a></li>
+        <li><a href="#"><img src="images/index/best.png" alt="best">
+            <p>BEST</p>
+          </a></li>
+        <li><a href="#"><img src="images/index/membership.png" alt="Membership">
+            <p>MemberShip</p>
+          </a></li>
+        <li><a href="#"><img src="images/index/coupon.png" alt="coupon">
+            <p>Coupon</p>
+          </a>
+        </li>
+        <li><a href="#"><img src="images/index/earth.png" alt="earth">
+            <p>Activities<br>For Earth</p>
+          </a>
+        </li>
+        <li><a href="#"><img src="images/index/kakaotalk-gift.png" alt="kakaotalk-gift">
+            <p>Kakao Talk<br>Gift</p>
+          </a>
+        </li>
+        <li><a href="#"><img src="images/index/review.png" alt="review">
+            <p>Review</p>
+          </a>
+        </li>
+        <li><a href="#"><img src="images/index/finding-store.png" alt="finding Store">
+            <p>Finding Store</p>
+          </a>
+        </li>
+      </ul>
+    </div> <!-- menu -->
+
+    <div id="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/0oQnm-tctMk?si=B6ewDm1wW_qrzw5v"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div> <!-- video -->
+
+    <div id="menu_wrap">
+      <div class="menu_inner">
+        <a href="#" class="x_icon"><i class="fa-solid fa-x"></i></a>
+        <ul id="quick_menu1">
+          <li>
+            <a href="#">
+              <i class="fa-regular fa-id-card icon2"></i>
+              <p>회원가입</p>
+            </a>
+          </li>
+          <li class="quick">
+            <a href="#">
+              <i class="fa-solid fa-heart icon2"></i>
+              <p>관심상품</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-circle-user icon2"></i>
+              <p>마이페이지</p>
+            </a>
+          </li>
+        </ul> <!-- quick_menu1 -->
+        <ul id="quick_menu2">
+          <li>
+            <a href="#" class="selected">MENU</a>
+          </li>
+          <li>
+            <a href="#">고객센터</a>
+          </li>
+        </ul> <!-- quick_menu2 -->
+
+        <nav id="gnb">
+          <ul>
+            <li><a href="#">BRAND<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">About Etude</a></li>
+                <li><a href="#">지구를 위한 활동</a></li>
+              </ul> <!-- submenu -->
+            </li> <!-- gnb_brand -->
+            <li><a href="#">PRODUCT<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">스킨/토너</a></li>
+                <li><a href="#">에센스/세럼/앰플</a></li>
+                <li><a href="#">크림</a></li>
+                <li><a href="#">미스트/오일</a></li>
+                <li><a href="#">핸드크림</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">클렌징<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">클렌징폼/젤</a></li>
+                <li><a href="#">오일/밤/워터</a></li>
+                <li><a href="#">필링&스크럽</a></li>
+                <li><a href="#">티슈/패드</a></li>
+                <li><a href="#">립&아이리무버</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">선케어<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">선크림</a></li>
+                <li><a href="#">선스틱</a></li>
+                <li><a href="#">선쿠션</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">메이크업<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">립메이크업</a>
+                <li><a href="#">베이스메이크업</a>
+                <li><a href="#">아이메이크업</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">뷰티소품<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">메이크업소품</a></li>
+                <li><a href="#">아이소품</a></li>
+                <li><a href="#">스킨케어소품</a></li>
+                <li><a href="#">헤어소품</a></li>
+                <li><a href="#">뷰티잡화</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">MAKEUP LOOK<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">Warm Tone</a></li>
+                <li><a href="#">Cool Tone</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">MEMBERSHIP<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">핑크멤버쉽</a></li>
+                <li><a href="#">뷰티포인트</a></li>
+              </ul> <!-- submenu -->
+            </li>
+            <li><a href="#">LOGIN</a></li>
+            <li class="gnb_point"><a href="#">CUSTOMER SERVICE<i class="fa-solid fa-plus icon3"></i></a>
+              <ul class="submenu">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">매장찾기</a></li>
+                <li><a href="#">이벤트</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul> <!-- submenu -->
+            </li>
+          </ul>
+        </nav> <!-- gnb -->
+
+        <div id="menu_area">
+          <div class="call">
+            <i class="fa-solid fa-phone icon4"></i>
+            <p><span>제품 문의 : </span>080-022-2285 / <span>고객 문의 : </span>1544-5418</p>
+            <p><span>대표 이메일 : </span>etude_master@etyde.co.kr</p>
+          </div> <!-- call -->
+          <div class="time">
+            <i class="fa-solid fa-clock icon4"></i>
+            <p><span>운영 시간 : </span>평일 13:00 ~ 17:00 (주말 및 공휴일 휴무)</p>
+            <p><span>점심 시간 : </span>12:00 ~ 13:00</p>
+          </div> <!-- time -->
+        </div> <!-- menu_area -->
+      </div> <!-- menu_inner -->
+    </div> <!-- menu_wrap -->
+
+    <div id="pdt_menu">
+      <section class="menu_title">
+        <h2><i class="fa-regular fa-lightbulb icon6"></i>NEW 콜라보 및 신상<i class="fa-regular fa-lightbulb icon6"></i></h2>
+        <div class="pdt_list1">
+          <a href="#">
+            <figure>
+              <img src="images/index/new1.png" alt="NEW 콜라보 및 신상" class="pdt_img">
+              <figcaption>
+                <span class="title">플레이 멀티 아이즈 + 오버글로이 틴트 +그림자 쉐딩 3종 세트</span>
+                <span class="txt1">20%</span>
+                <span class="txt2">44,800원</span>
+                <span class="txt3">#NEW #콜라보 #인기세트<br>#마루와강쥐</span>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="#">
+            <figure>
+              <img src="images/index/new2.png" alt="플레이 멀티 아이즈 7.5g+오버글로이 틴트3g 2종세트" class="pdt_img">
+              <figcaption>
+                <span class="title">플레이 컬러 아이즈 9색 섀도우 팔레트</span>
+                <span class="txt1">64%</span>
+                <span class="txt2">9,900원</span>
+                <span class="txt3">#재출시 #뭉침제로<br>#실키텍스처 #컬러쉐이드</span>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="#">
+            <figure>
+              <img src="images/index/new3.png" alt="NEW 콜라보 및 신상" class="pdt_img">
+              <figcaption>
+                <span class="title">파워 래쉬 속눈썹 영양제</span>
+                <span class="txt1">35%</span>
+                <span class="txt2">14,950원</span>
+                <span class="txt3">#아모레퍼시픽 #연구원추천<br>#개선효과 #클린베이스성분</span>
+              </figcaption>
+            </figure>
+          </a>
+        </div> <!-- pdt_list1 -->
+      </section> <!-- menu_title -->
+
+      <section class="menu_title" style="padding-top: 30px;">
+        <h2><i class="fa-regular fa-thumbs-up icon6"></i>최근 본 상품 및 연관 추천 상품<i class="fa-regular fa-thumbs-up icon6"></i>
+        </h2>
+        <div class="pdt_list2">
+          <a href="#">
+            <figure>
+              <img src="images/index/recently1.png" alt="슈가컬러링 젤리밤 9g" class="pdt_img">
+              <figcaption>
+                <span class="title">슈가컬러링 젤리밤 9g</span>
+                <span class="txt1">24%</span>
+                <span class="txt2">12,160원</span>
+                <span class="txt3">#직원추천템 #올마이포켓립</span>
+                <span class="txt3">#도톰젤리 #슈가코팅관</span>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="#">
+            <figure>
+              <img src="images/index/recently2.png" alt="피지쏙 젤리 파우더 8g" class="pdt_img">
+              <figcaption>
+                <span class="title">피지쏙 젤리 파우더 8g</span>
+                <span class="txt1">28%</span>
+                <span class="txt2">10,680원</span>
+                <span class="txt3">#인기 급 상승 #투명하게</span>
+                <span class="txt3">#피지만쏙! #산뜻보송</span>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="#">
+            <figure>
+              <img src="images/index/recently3.png" alt="프루티 립앤치크 블러밤 2.3g x 5컬러 풀세트" class="pdt_img">
+              <figcaption>
+                <span class="title">그림자 쉐딩(2color/5g)/조효진쉐딩+블링블링스틱 증정</span>
+                <span class="txt1">18%</span>
+                <span class="txt2">14,000원</span>
+                <span class="txt3">#조효진 #공동개발</span>
+                <span class="txt3">#보송보송 #커버</span>
+              </figcaption>
+            </figure>
+          </a>
+        </div> <!-- pdt_list2 -->
+      </section> <!-- menu_title -->
+    </div> <!-- pdt_menu -->
+
+    <section class="menu_title" style="padding-top: 30px;">
+      <h2><i class="fa-solid fa-thumbs-up icon6"></i>인기 급상승 및 베스트템<i class="fa-solid fa-thumbs-up icon6"></i></h2>
+      <div id="page1">
+        <div class="page1_con_wrap">
+          <h3 class="point_title">
+            <span class="point_bg"></span> <!-- 텍스트 bg -->
+            <span class="point">설레는 첫 메이크업의 순간을 함께하는</span>
+          </h3> <!-- point_title -->
+          <span>에뛰드는 메이크업이 더욱 쉽고 즐거운 경험이 되도록<br>최고의 제품과 서비스를 제공합니다.<br>다채로운 컬러, 사랑스러운 디자인을 통해 <strong>나만의 개성을
+              찾고,<br>아름다움을
+              발견하도록</strong> 도와드리겠습니다.</span>
+          <a href="#" class="page1_btn">상품 더보기<i class="fa-solid fa-angle-down"></i></a>
+          <div class="page1_list_wrap"><!-- 화면 크기(100%) -->
+            <ul class="page1_list_inner"><!-- 리스트 갯수 -->
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list1.png" alt="product">
+                  <strong class="txt4">1</strong>
+                  <span class="title">청순 거짓 브라우 카라 4.5g</span>
+                  <span class="txt1">20%</span>
+                  <span class="txt2">5,600원</span>
+                  <span class="txt3">#BEST #청순</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list2.png" alt="product">
+                  <strong class="txt4">2</strong>
+                  <span class="title">테라피 에어마스크 20매 SET</span>
+                  <span class="txt1">52%</span>
+                  <span class="txt2">12,000원</span>
+                  <span class="txt3">#BEST #광채 #물광 #볼륨 #촉촉</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list3.png" alt="product">
+                  <strong class="txt4">3</strong>
+                  <span class="title">님프 광채_투명한 물광채 24g</span>
+                  <span class="txt1">24%</span>
+                  <span class="txt2">14,250원</span>
+                  <span class="txt3">#BEST #광채 #물광 #볼륨 #촉촉</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list4.png" alt="product">
+                  <strong class="txt4">4</strong>
+                  <span class="title">오마이 라인 1EA</span>
+                  <span class="txt1">20%</span>
+                  <span class="txt2">6,400원</span>
+                  <span class="txt3">#BEST #또렷 #픽싱력UP</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list5.png" alt="product">
+                  <strong class="txt4">5</strong>
+                  <span class="title">디어 달링 워터젤 틴트 5g 2개</span>
+                  <span class="txt1">33%</span>
+                  <span class="txt2">10,640원</span>
+                  <span class="txt3">#BEST #HOT #주목템 #촉촉</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list6.png" alt="product">
+                  <strong class="txt4">6</strong>
+                  <span class="title">글로우 픽싱 틴트 3.8g</span>
+                  <span class="txt1">24%</span>
+                  <span class="txt2">10,640원</span>
+                  <span class="txt3">#BEST #HOT #글로시 #픽싱</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list7.png" alt="product">
+                  <strong class="txt4">7</strong>
+                  <span class="title">순정 디렉터 수분 선크림</span>
+                  <span class="txt1">40%</span>
+                  <span class="txt2">15,000원</span>
+                  <span class="txt3">#BEST #이지워시 #수분핏선크림</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list8.png" alt="product">
+                  <strong class="txt4">8</strong>
+                  <span class="title">글로우 온 베이스 오일볼륨</span>
+                  <span class="txt1">30%</span>
+                  <span class="txt2">12,600원</span>
+                  <span class="txt3">#BEST #윤기 #광채오일 #퓨어워터</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list9.png" alt="product">
+                  <strong class="txt4">9</strong>
+                  <span class="title">재창조 메이커 (쉐딩 스틱) 1g</span>
+                  <span class="txt1">20%</span>
+                  <span class="txt2">11,200원</span>
+                  <span class="txt3">#조효진쉐딩 #모두의쉐딩 #부위별음영</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list10.png" alt="product">
+                  <strong class="txt4">10</strong>
+                  <span class="title">플레이 컬러 아이즈 뮬리 로맨스</span>
+                  <span class="txt1">30%</span>
+                  <span class="txt2">17,500원</span>
+                  <span class="txt3">#데일리팔레트 #독보적색감</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list11.png" alt="product">
+                  <strong class="txt4">11</strong>
+                  <span class="title">반짝 눈물 라이너 1EA</span>
+                  <span class="txt1">30%</span>
+                  <span class="txt2">7,000원</span>
+                  <span class="txt3">#그렁그렁 #눈가에눈물맺힌듯</span>
+                </a> <!-- page1_txt -->
+              </li>
+              <li>
+                <a href="#" class="page1_txt">
+                  <img src="images/index/best_list12.png" alt="product">
+                  <strong class="txt4">12</strong>
+                  <span class="title">사르르 하트팜 블러셔 4g</span>
+                  <span class="txt1">20%</span>
+                  <span class="txt2">10,400원</span>
+                  <span class="txt3">#SarrSwwet #달콤컬러 #청량발색</span>
+                </a> <!-- page1_txt -->
+              </li>
+            </ul><!-- page1_list_inner -->
+          </div><!-- page1_list_wrap -->
+        </div><!-- page1_con_wrap -->
+      </div><!-- page1 -->
+    </section>
+
+    <div id="makeup_book" style="padding-top: 30px;">
+      <h2><a href="#">이런 스타일의 메이크업은 어떠세요?</a></h2>
+      <p class="text">다양한 메이크업 스타일을 만나보세요.</p>
+      <!-- Swiper -->
+      <div class="swiper2 mySwiper">
+        <div class="swiper-wrapper slide2_wrap">
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list1.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list2.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list3.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list4.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list5.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list6.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list7.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list8.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list9.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2">
+            <a href="#"><img src="images/index/make_list10.png" alt="make_list" class="list"></a>
+            <a href="#"><i class="fa-regular fa-heart icon heart"></i></a>
+            <a href="#"><i class="fa-solid fa-heart icon heart1"></i></a>
+          </div>
+          <div class="swiper-slide slide2 plus">
+            <a href="#">더보기 <i class="fa-solid fa-circle-plus"></i></a>
+          </div>
+        </div>
+      </div>
+    </div><!-- makeup_book -->
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper1", {
+        centeredSlides: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".pagination1",
+          type: "fraction",
+        }
+      });
+
+      var swiper2 = new Swiper(".swiper2", {
+        slidesPerView: 4,
+        centeredSlides: true,
+        spaceBetween: 30,
+        grabCursor: true,
+      });
+    </script>
+
+    <footer id="bottom_wrap"> <!-- footer -->
+      <div class="footer">
+        <p><strong>공지</strong> [공지] 사이트 점검 안내 7/22 14:00 ~ 14:30</p>
+      </div> <!-- footer -->
+      <ul class="fnb">
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">사이트맵</a></li>
+        <li><a href="#">이용약관</a></li>
+        <li><a href="#">전자공고</a></li>
+        <li><a href="#">개인정보처리방침</a></li>
+        <li><a href="#">영상정보처리기기 운영·관리 방침</a></li>
+      </ul> <!-- fnb -->
+      <ul class="fnb1">
+        <li class="fnb1_left"><img src="images/index/logo2.png" alt="logo2"></li>
+        <li><strong>(주)에뛰드 대표이사 : </strong> 이수연</li>
+        <li><strong>개인정보보호책임자</strong> 이수연</li>
+        <li><strong>사업자등록번호 : </strong> 135-81-05033</li>
+        <li><strong>주소 : </strong> 서울특별시 용산구 한강대로 100 (한강로2가)</li>
+      </ul> <!-- fnb1 -->
+      <ul class="bot_area">
+        <li class="bot_title"><strong>제품 문의</strong><br>080-022-2285</li>
+        <li class="bot_title"><strong>고객 문의</strong><br>1544-5418 </li>
+        <li class="bot_title"><strong>대표 이메일</strong><br>etude_master@etyde.co.kr</li>
+      </ul> <!-- bot_area -->
+      <div class="bot_time">
+        <p>평일 13:00 ~ 17:00 (주말 및 공휴일 휴무)</p>
+        <p>점심시간 12:00 ~ 13:00</p>
+      </div>
+      <div class="bot_sns">
+        <a href="https://pf.kakao.com/_FRxjxfR" class="sns_img"><img src="images/index/KakaoTalk_icon.png"
+            alt="kakaotalk">
+          <p>카카오톡 <span>바로가기</span></p>
+        </a>
+        <a href="https://www.instagram.com/etudeofficial/" class="sns_img"><img src="images/index/Instagram_icon.png"
+            alt="Instagram">
+          <p>인스타 <span>바로가기</span></p>
+        </a>
+        <a href="https://www.facebook.com/etudeofficial/?locale=ko_KR" class="sns_img"><img
+            src="images/index/FaceBook_icon.png" alt="facebook">
+          <p>페이스북 <span>바로가기</span></p>
+        </a>
+        <a href="https://www.youtube.com/user/etudeblog" class="sns_img"><img src="images/index/YouTube_icon.png"
+            alt="kakaotalk">
+          <p>유트브 <span>바로가기</span></p>
+        </a>
+      </div> <!-- bot_sns -->
+      <div class="copyright">&copy;ETUDE CORPORATION.ALL RIGHTS RESERVED.</div>
+    </footer> <!-- bottom_wrap -->
+
+    <div id="bottom">
+      <ul>
+        <li class="btn_m">
+          <a href="index.html">
+            <i class="fa-solid fa-house bottom_btn"></i>
+            <br>Home
+          </a>
+        </li> <!-- btn_m -->
+        <li class="btn_s">
+          <a href="shopping.html">
+            <i class="fa-brands fa-bluesky bottom_btn"></i>
+            <br>뷰티존
+          </a>
+        </li> <!-- btn_s -->
+        <li class="btn_m">
+          <a href="look.html">
+            <i class="fa-solid fa-store bottom_btn"></i>
+            <br>쇼핑하기
+          </a>
+        </li> <!-- btn_m -->
+        <li class="btn_l">
+          <a href="interior.html">
+            <i class="fa-solid fa-heart bottom_btn"></i>
+            <br>마이페이지
+          </a>
+        </li> <!-- btn_l -->
+        <li class="btn_l">
+          <a href="mypage.html">
+            <i class="fa-solid fa-user bottom_btn"></i>
+            <br>마이페이지
+          </a>
+        </li> <!-- btn_l -->
+      </ul>
+    </div><!-- bottom -->
+  </div> <!-- wrap -->
+  <a href="#wrap" class="top_btn">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a> <!-- top_btn -->
+</body>
+
+</html>

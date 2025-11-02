@@ -1,0 +1,3723 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI/UX Portfolio</title>
+
+  <!-- Libraries -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <style>
+    /* =========================================
+============== Base / Reset ===============
+- 공통 타이포/레이아웃, 스크롤 잠금
+========================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Pretendard', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      background: #fff;
+      color: #222;
+    }
+
+    body.lock-scroll {
+      overflow: hidden;
+    }
+
+    html.pre-intro,
+    body.pre-intro {
+      overflow: hidden;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    html.pre-intro::-webkit-scrollbar,
+    body.pre-intro::-webkit-scrollbar {
+      display: none;
+    }
+
+    body.pre-intro nav,
+    body.pre-intro .hamburger {
+      display: none !important;
+    }
+
+    /* 공통 섹션 박스 */
+    section {
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(8px, 2vw, 24px);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      text-align: center;
+    }
+
+    p {
+      margin: clamp(6px, 1.4vw, 12px) 0;
+    }
+
+    /* 힌트 */
+    .cta-hint {
+      margin-top: clamp(6px, 1.4vw, 12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      opacity: 0;
+      animation: hintBlink 1s steps(2, end) infinite;
+    }
+
+    body.pre-intro .cta-hint {
+      opacity: 1;
+    }
+
+    .arrow-up {
+      font-size: clamp(18px, 3.5vw, 30px);
+      line-height: 1;
+      animation: arrowBounce 1.2s infinite;
+      margin-top: clamp(8px, 1.5vw, 15px);
+    }
+
+    .click-text {
+      font-size: clamp(12px, 1.8vw, 18px);
+      margin-top: 4px;
+      letter-spacing: .08em;
+    }
+
+    @keyframes arrowBounce {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-6px)
+      }
+    }
+
+    /* =========================================
+============= Header / Nav ================
+========================================= */
+    header {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: clamp(56px, 7svh, 70px);
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 clamp(10px, 2vw, 20px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: clamp(15px, 2.4vw, 20px);
+      font-weight: 700;
+      color: #d97904;
+      cursor: pointer;
+    }
+
+    nav ul.menu {
+      display: flex;
+      list-style: none;
+      gap: clamp(10px, 2vw, 20px);
+    }
+
+    nav ul.menu li {
+      padding: clamp(6px, 1.6vw, 10px);
+      font-size: clamp(14px, 2vw, 20px);
+    }
+
+    nav ul.menu li a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 500;
+      transition: .25s;
+      font-size: clamp(10px, 2vw, 13px);
+    }
+
+    nav ul.menu li a:hover {
+      color: #d97904;
+      font-weight: 700;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #222;
+      border-radius: 2px;
+    }
+
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      nav ul.menu {
+        position: fixed;
+        top: clamp(56px, 7svh, 70px);
+        right: -100%;
+        background: #fff;
+        flex-direction: column;
+        width: min(78vw, 320px);
+        height: calc(100svh - clamp(56px, 7svh, 70px));
+        padding-top: 20px;
+        gap: 15px;
+        transition: right .3s, box-shadow .3s;
+      }
+
+      nav ul.menu li {
+        padding: 15px;
+      }
+
+      nav ul.menu li a {
+        font-size: 15px;
+      }
+
+      nav ul.menu li a:hover {
+        border-bottom: 1px solid rgba(0, 0, 0, .5);
+      }
+
+      nav ul.menu.active {
+        right: 0;
+        box-shadow: -5px 0 15px -5px rgba(0, 0, 0, .3);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* =========================================
+================= Intro ===================
+========================================= */
+    .intro {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .intro img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 1;
+    }
+
+    .intro h1 {
+      font-size: clamp(28px, 6vw, 40px);
+      animation: fadeInDown 1s ease forwards;
+      margin-top: clamp(70px, 9svh, 80px);
+    }
+
+    .intro p {
+      font-size: clamp(14px, 2.5vw, 20px);
+      margin-top: 10px;
+      animation: fadeInUp 1s ease .5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .intro button {
+      margin-top: clamp(16px, 3vw, 30px);
+      padding: clamp(10px, 2vw, 13px) clamp(16px, 3vw, 25px);
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #d97904;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .3s;
+      animation: btnPulse 2s infinite;
+    }
+
+    @keyframes btnPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        background: #fff
+      }
+
+      50% {
+        opacity: .9;
+        background: #d97904;
+        color: #fff
+      }
+    }
+
+    .intro button:hover {
+      transform: scale(1.03);
+    }
+
+    /* =========================================
+================ About =====================
+========================================= */
+    #about {
+      background: #f5f0e1;
+      width: 100%;
+      padding: clamp(16px, 3vw, 30px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: clamp(20px, 3.5vw, 30px);
+      margin: clamp(16px, 3vw, 25px) 0;
+    }
+
+    .profile img {
+      width: clamp(160px, 28vw, 300px);
+      height: clamp(176px, 31vw, 330px);
+      border-radius: 50%;
+      margin: clamp(8px, 1.6vw, 10px) auto;
+      object-fit: cover;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      width: min(92%, 1200px);
+      gap: clamp(16px, 3vw, 30px);
+      margin-top: clamp(16px, 3vw, 30px);
+      flex-wrap: wrap;
+    }
+
+    .education,
+    .career {
+      width: min(100%, 560px);
+      flex: 1 1 340px;
+    }
+
+    .education h3,
+    .career h3 {
+      font-size: clamp(18px, 3vw, 30px);
+      margin: clamp(24px, 5vw, 60px) 0;
+    }
+
+    .education h4,
+    .career h4 {
+      font-size: clamp(14px, 2vw, 20px);
+    }
+
+    .education p,
+    .career p {
+      font-size: clamp(13px, 1.8vw, 18px);
+    }
+
+    .certs h3,
+    .skills h3 {
+      width: 100%;
+      font-size: clamp(18px, 3vw, 30px);
+      margin: clamp(24px, 5vw, 60px) 0;
+    }
+
+    /* 수직 타임라인 */
+    .timeline {
+      position: relative;
+      padding-left: clamp(18px, 3vw, 30px);
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: clamp(8px, 1.2vw, 12px);
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: #d97904;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: clamp(8px, 1.6vw, 10px) clamp(8px, 1.6vw, 10px) clamp(8px, 1.6vw, 10px) clamp(28px, 4vw, 44px);
+      margin-bottom: clamp(12px, 2vw, 20px);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: clamp(-14px, -2vw, -18px);
+      top: 12px;
+      width: clamp(14px, 2.5vw, 20px);
+      height: clamp(14px, 2.5vw, 20px);
+      background: #d97904;
+      border-radius: 50%;
+      border: 3px solid #fff;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+    }
+
+    /* 자격증 카드 그리드 */
+    .certs {
+      margin-top: clamp(16px, 3vw, 30px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(10px, 2vw, 20px);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .certs .cert-card {
+      padding: clamp(12px, 2.5vw, 20px);
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+      cursor: pointer;
+      transition: .25s;
+      font-size: clamp(13px, 1.8vw, 18px);
+    }
+
+    .certs .cert-card:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+    }
+
+    .certs .cert-date {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(12px, 1.6vw, 15px);
+      color: #555;
+    }
+
+    /* 소개문 박스 */
+    #about .intro {
+      max-width: min(95vw, 950px);
+      margin: 0 auto clamp(18px, 3vw, 36px);
+      line-height: 1.6;
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: clamp(16px, 3vw, 30px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
+    }
+
+    #about .intro p {
+      font-size: clamp(13px, 1.8vw, 18px);
+      color: #333;
+      margin: 0;
+      text-align: center;
+      text-wrap: balance;
+      hyphens: auto;
+    }
+
+    #about .intro p strong {
+      color: #d97904;
+      font-weight: 600;
+    }
+
+    /* =========================================
+======== Personal Meters(개인지표) =========
+========================================= */
+    .personal-meters {
+      display: grid;
+      gap: clamp(12px, 2vw, 16px);
+      margin-top: clamp(12px, 2vw, 18px);
+    }
+
+    .pm-title {
+      grid-column: 1 / -1;
+      margin: 0 0 clamp(12px, 2vw, 20px);
+      font-size: clamp(18px, 2.8vw, 25px);
+    }
+
+    .pm-block {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: clamp(16px, 4vw, 50px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .04);
+    }
+
+    .pm-label {
+      font-size: clamp(14px, 2.4vw, 25px);
+      margin-bottom: clamp(8px, 1.8vw, 15px);
+      color: #d97904;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pm-bullets {
+      margin: 0;
+      padding-left: clamp(14px, 2vw, 18px);
+      display: grid;
+      gap: clamp(4px, 1.2vw, 6px);
+    }
+
+    .pm-bullets li {
+      font-size: clamp(12px, 1.8vw, 18px);
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .pm-meter {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(6px, 1.5vw, 12px);
+      align-items: center;
+    }
+
+    .pm-meter .pm-meter-text {
+      font-size: clamp(12px, 1.8vw, 18px);
+      color: #111827;
+    }
+
+    .pm-meter .pm-percent {
+      font-size: clamp(12px, 1.8vw, 18px);
+      color: #7d7d7d;
+    }
+
+    .pm-meter .pm-bar {
+      grid-column: 1 / 3;
+      height: clamp(8px, 1vw, 10px);
+      background: #f3f4f6;
+      border: 1px solid #eee;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .pm-meter .pm-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #d97904, #a95e03);
+      border-radius: 999px;
+      transition: width .9s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .pm-meter.slim .pm-bar {
+      height: clamp(6px, .8vw, 8px);
+    }
+
+    .pm-meter.slim .pm-meter-text {
+      margin-top: 6px;
+      font-size: clamp(12px, 1.8vw, 18px);
+    }
+
+    .pm-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 2px 0 6px;
+    }
+
+    .pm-chip {
+      font-size: clamp(11px, 1.6vw, 13px);
+      color: #d97904;
+      background: #fff7ec;
+      border: 1px solid #ffd7a8;
+      padding: 5px 9px;
+      border-radius: 999px;
+      margin-top: 5px;
+    }
+
+    .pm-desc {
+      margin: 8px 0 14px;
+      font-size: clamp(12px, 1.8vw, 18px);
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .pm-desc strong {
+      color: #d97904;
+      font-weight: 600;
+    }
+
+    .pm-desc+.pm-meter {
+      margin-top: 6px;
+    }
+
+    .pm-meter+.pm-meter {
+      margin-top: 10px;
+    }
+
+    .pm-block.funfacts {
+      padding: clamp(16px, 2.5vw, 28px);
+      background: #fffefd;
+      border: 1px solid #f3e7d5;
+    }
+
+    .pm-block.funfacts .pm-bullets {
+      gap: 8px;
+      padding-left: clamp(14px, 2vw, 18px);
+    }
+
+    .pm-block.funfacts .pm-bullets li {
+      font-size: clamp(12px, 1.6vw, 14px);
+      line-height: 1.6;
+    }
+
+    /* 레이아웃: PC 2열 + 마지막 카드 풀폭 */
+    @media (min-width: 860px) {
+      .personal-meters {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .personal-meters>.pm-block:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* =========================================
+================= Skills ===================
+========================================= */
+    .skills {
+      width: min(90%, 800px);
+      max-width: 100%;
+      margin: clamp(16px, 3vw, 30px) auto;
+    }
+
+    .skills h3 {
+      font-size: clamp(18px, 3vw, 30px);
+    }
+
+    .skill-bar-wrapper {
+      position: relative;
+      margin: clamp(10px, 2vw, 15px) 0;
+    }
+
+    .skill-bar {
+      height: clamp(18px, 3.5vw, 30px);
+      background: #ddd;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      width: 0;
+      background: #d97904;
+      text-align: left;
+      padding-left: clamp(6px, 1.4vw, 10px);
+      color: #fff;
+      font-weight: 600;
+      font-size: clamp(12px, 1.8vw, 18px);
+      line-height: clamp(18px, 3.5vw, 30px);
+      transition: width 1s;
+      border-radius: 0 999px 999px 0;
+    }
+
+    .percent {
+      font-size: clamp(12px, 1.8vw, 18px);
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(5px, -50%);
+      font-weight: 700;
+      color: #222;
+      white-space: nowrap;
+      margin-left: clamp(8px, 2vw, 20px);
+    }
+
+    .skills-container,
+    .abilities-container {
+      flex: 1;
+      min-width: min(90vw, 360px);
+      padding: clamp(12px, 3vw, 50px);
+    }
+
+    .skills-container h3,
+    .abilities-container h3 {
+      font-size: clamp(18px, 3vw, 30px);
+      margin: clamp(24px, 5vw, 60px) 0;
+      text-align: center;
+    }
+
+    /* =========================================
+================= Web ======================
+========================================= */
+    #web {
+      background-color: #fbfbfb;
+    }
+
+    #section1 {
+      background: #fff;
+      width: 100%;
+      text-align: center;
+    }
+
+    #section1 h2 {
+      font-size: clamp(24px, 5vw, 48px);
+    }
+
+    .section1_card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      border-radius: 20px;
+      padding: clamp(12px, 2.5vw, 24px);
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
+      min-height: clamp(420px, 60vw, 600px);
+    }
+
+    .section1_card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: clamp(10px, 2vw, 20px);
+    }
+
+    .section1_card h3 {
+      font-size: clamp(16px, 2.5vw, 24px);
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+
+    #section1 h4,
+    #section1 h5 {
+      font-size: clamp(14px, 2.2vw, 24px);
+      font-weight: 500;
+      margin-bottom: .6rem;
+    }
+
+    .section1_card p {
+      font-size: clamp(13px, 2vw, 20px);
+      text-align: center;
+      color: #555;
+    }
+
+    #section1 .swiper-slide:hover {
+      animation: tilt .6s ease-in-out;
+    }
+
+    @keyframes tilt {
+      0% {
+        transform: rotate(0)
+      }
+
+      25% {
+        transform: rotate(2deg)
+      }
+
+      50% {
+        transform: rotate(-2deg)
+      }
+
+      75% {
+        transform: rotate(1deg)
+      }
+
+      100% {
+        transform: rotate(0)
+      }
+    }
+
+    @media (max-width:768px) {
+      #section1 .swiper-pagination {
+        bottom: 40px !important;
+      }
+    }
+
+    /* =========================================
+====== Web Projects switcher (탭) =========
+========================================= */
+    .section-btns {
+      display: flex;
+      gap: clamp(10px, 2vw, 20px);
+      margin-bottom: clamp(12px, 2vw, 20px);
+    }
+
+    .section-btn {
+      padding: clamp(10px, 2vw, 14px) clamp(16px, 3vw, 24px);
+      border: 0;
+      border-radius: 999px;
+      background: #ddd;
+      cursor: pointer;
+      transition: .25s;
+      font-size: clamp(14px, 2.4vw, 18px);
+    }
+
+    .section-btn.active {
+      background: #333;
+      color: #fff;
+    }
+
+    .section-btn:hover {
+      opacity: .85;
+      font-weight: 700;
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(18px, 3vw, 40px);
+    }
+
+    .section {
+      display: none;
+      gap: clamp(12px, 2vw, 20px);
+      align-items: center;
+      background: #fff;
+      padding: clamp(12px, 2.5vw, 20px);
+      border-radius: 15px;
+    }
+
+    .section.active {
+      display: flex;
+    }
+
+    .section-left {
+      flex: .7;
+      min-width: 260px;
+    }
+
+    .section-left h3 {
+      font-size: clamp(18px, 3vw, 32px);
+      margin-bottom: clamp(8px, 1.5vw, 16px);
+    }
+
+    .section-left p {
+      font-size: clamp(14px, 2.3vw, 20px);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .section-left p strong {
+      color: #d97904;
+    }
+
+    .section-left .more-btn {
+      background: #d97904;
+      padding: clamp(10px, 2vw, 13px) clamp(26px, 4vw, 50px);
+      font-size: clamp(14px, 2.2vw, 18px);
+      border-radius: 1rem;
+      border: 0;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .section-left .more-btn:hover {
+      background: #f0a500;
+      font-weight: 700;
+      transform: translateY(-2px);
+    }
+
+    .section-right {
+      flex: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 280px;
+    }
+
+    .section-right img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    @media (max-width: 768px) {
+      .section.active {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-right {
+        order: -1;
+        width: 100%;
+        margin-bottom: clamp(12px, 2vw, 20px);
+      }
+
+      .section-left {
+        width: 92%;
+        text-align: center;
+      }
+    }
+
+    /* =========================================
+================ Abilities =================
+========================================= */
+    .abilities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      justify-items: center;
+      align-items: center;
+      row-gap: clamp(10px, 3vw, 30px);
+      column-gap: clamp(10px, 3vw, 30px);
+    }
+
+    .ability-circle {
+      position: relative;
+      width: clamp(110px, 14vw, 140px);
+      height: clamp(110px, 14vw, 140px);
+      background: #d97904;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: clamp(12px, 2vw, 18px);
+      text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .ability-circle:hover {
+      animation: float 2s ease-in-out infinite;
+      background: rgba(255, 255, 255, .2);
+      color: #222;
+      backdrop-filter: blur(8px);
+      border: 3px solid #fff;
+    }
+
+    .abilities-container p {
+      font-size: clamp(12px, 2vw, 18px);
+      text-align: center;
+      margin: -30px 0 15px 0;
+      line-height: 1.6;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1.05)
+      }
+
+      50% {
+        transform: translateY(-10px) scale(1.05)
+      }
+    }
+
+    .ability-circle .desc {
+      position: absolute;
+      top: 105%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, .8);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      z-index: 10;
+    }
+
+    .ability-circle:hover .desc {
+      opacity: 1;
+      transform: translateX(-50%) translateY(5px);
+    }
+
+    .ability-circle:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .ability-circle:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .ability-circle:nth-child(3) {
+      grid-column: 1 / span 2;
+      grid-row: 2;
+    }
+
+    /* =========================================
+=============== Prototype ==================
+- A/B 토글 카드 + iframe
+========================================= */
+    :root {
+      --bg: #fff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --ring: #e2e8f0;
+      --brand: #111827;
+    }
+
+    .bar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: clamp(10px, 2vw, 12px);
+    }
+
+    #prototype h1 {
+      font-size: clamp(24px, 5vw, 30px);
+      margin-top: 50px;
+    }
+
+    #prototype p {
+      text-align: center;
+      font-size: clamp(14px, 2vw, 15px);
+      font-weight: normal;
+      line-height: 1.5em;
+    }
+
+    .toggle {
+      display: inline-flex;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid var(--ring);
+      background: color-mix(in oklab, var(--bg) 88%, transparent);
+      margin-top: 10px;
+    }
+
+    .toggle button {
+      border: 0;
+      padding: clamp(8px, 1.8vw, 14px) clamp(12px, 2.5vw, 14px);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      background: transparent;
+      font-size: clamp(10px, 2vw, 11px);
+    }
+
+    .toggle button.active {
+      background: var(--brand);
+      color: var(--bg);
+    }
+
+    .actions {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: clamp(10px, 2vw, 11px);
+      padding: clamp(8px, 1.8vw, 12px) clamp(10px, 2.3vw, 12px);
+    }
+
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: clamp(8px, 1.8vw, 12px) clamp(10px, 2.3vw, 12px);
+      border-radius: 10px;
+      border: 1px solid var(--ring);
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    /* 카드 + 임베드 */
+    .card {
+      border: 1px solid var(--ring);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+      background: color-mix(in oklab, var(--bg) 95%, transparent);
+    }
+
+    .card-head {
+      padding: clamp(12px, 2.2vw, 16px);
+    }
+
+    .chip {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #d97904;
+      font-weight: 700;
+    }
+
+    .title {
+      margin: 4px 0 0;
+      font-weight: 800;
+      font-size: clamp(14px, 2.2vw, 18px);
+    }
+
+    .sub {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: clamp(12px, 1.9vw, 14px);
+    }
+
+    .view {
+      border-top: 1px solid var(--ring);
+      padding: clamp(10px, 2vw, 12px);
+      background: color-mix(in oklab, var(--bg) 90%, transparent);
+    }
+
+    .ratio {
+      position: relative;
+      padding-top: 56.25%;
+    }
+
+    /* 16:9 */
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .grid {
+      display: grid;
+      gap: clamp(12px, 2vw, 16px);
+    }
+
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* 경고 메시지 */
+    .warn {
+      padding: clamp(10px, 1.8vw, 12px);
+      border: 1px dashed #f59e0b;
+      border-radius: 10px;
+      background: #fff8eb;
+      color: #7c4a00;
+      font-size: clamp(12px, 1.8vw, 14px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .warn {
+        background: #2a1e00;
+        color: #ffd79a;
+        border-color: #8a5f00;
+      }
+    }
+
+    /* =========================================
+============== Case Studies ===============
+========================================= */
+    #case-studies {
+      width: 100%;
+      background: #fff;
+      padding: clamp(20px, 3vw, 30px) clamp(10px, 2vw, 12px);
+      text-align: center;
+    }
+
+    .case-studies-p {
+      font-size: clamp(14px, 2vw, 17px);
+      margin-bottom: clamp(12px, 2.2vw, 20px);
+      line-height: 1.8;
+    }
+
+    .cs-list {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(14px, 2.5vw, 24px);
+    }
+
+    @media (max-width:1024px) {
+      .cs-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cs-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
+      transition: .25s transform, .25s box-shadow;
+    }
+
+    .cs-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, .12);
+    }
+
+    .cs-hero {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #f6f6f6;
+    }
+
+    .cs-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cs-badges {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 6px;
+      border-radius: 999px;
+      font-size: clamp(11px, 1.8vw, 14px);
+      background: #ffffffcc;
+      backdrop-filter: blur(6px);
+      border: 1px solid #eee;
+      color: #333;
+    }
+
+    .badge.role {
+      border-color: #d97904;
+      color: #d97904;
+      background: #fff9f2;
+    }
+
+    .badge.tools {
+      background: #f5f5f5;
+    }
+
+    .badge.time {
+      background: #eef7ff;
+      color: #2563eb;
+      border-color: #bfdbfe;
+    }
+
+    .cs-body {
+      text-align: left;
+      padding: 14px 16px 16px;
+    }
+
+    .cs-title {
+      font-size: clamp(14px, 2.2vw, 16px);
+      margin: 0 0 4px;
+    }
+
+    .cs-sub {
+      color: #666;
+      margin: 10px;
+      font-size: clamp(12px, 2vw, 15px);
+      line-height: 1.6;
+    }
+
+    .cs-meta {
+      list-style: none;
+      margin: 4px 0 8px;
+      padding: 0;
+    }
+
+    .cs-meta li {
+      font-size: clamp(12px, 1.9vw, 15px);
+      color: #333;
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    .cs-meta b {
+      color: #d97904;
+    }
+
+    .cs-details {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 6px 8px;
+      margin: 5px 0 9px;
+    }
+
+    .cs-details>summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: #333;
+      outline: none;
+      font-size: clamp(12px, 1.9vw, 15px);
+    }
+
+    .cs-steps {
+      display: grid;
+      gap: 6px;
+      margin-top: 5px;
+    }
+
+    .cs-steps .step {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      padding: 6px 8px;
+    }
+
+    .cs-steps h4 {
+      font-size: clamp(12px, 1.8vw, 14px);
+      margin-bottom: 3px;
+    }
+
+    .cs-steps p {
+      font-size: clamp(12px, 1.8vw, 14px);
+      line-height: 1.6;
+    }
+
+    .cs-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 10px;
+      padding: clamp(8px, 1.8vw, 10px) clamp(18px, 2.8vw, 25px);
+      background: #d97904;
+      color: #fff;
+      font-size: clamp(12px, 2vw, 15px);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: clamp(10px, 2vw, 20px);
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn.ghost {
+      background: #fff;
+      color: #d97904;
+      border: 1px solid #d97904;
+    }
+
+    /* =========================================
+================= Events ===================
+========================================= */
+    #events {
+      width: 100%;
+      background: #f5f0e1;
+      padding: clamp(20px, 3vw, 30px) clamp(10px, 2vw, 12px);
+      text-align: center;
+    }
+
+    .events-p {
+      font-size: clamp(14px, 2vw, 17px);
+      margin-bottom: clamp(12px, 2.2vw, 20px);
+      line-height: 1.8;
+    }
+
+    .event-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      padding: 6px 20px;
+      border: 1px solid #d97904;
+      background: #fff;
+      color: #d97904;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: clamp(12px, 2vw, 15px);
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color .2s, color .2s, border-color .2s;
+    }
+
+    .filter-btn.active {
+      background: #d97904;
+      color: #fff;
+    }
+
+    .filter-btn:focus-visible {
+      outline: 2px solid #d97904;
+      outline-offset: 2px;
+    }
+
+    .events-desktop {
+      display: block;
+    }
+
+    .events-mobile {
+      display: none;
+    }
+
+    #events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 3vw, 40px);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: transparent;
+      transition: transform .2s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .event-card>img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-card>h3 {
+      font-size: clamp(12px, 1.8vw, 15px);
+      margin: 8px 9px;
+      color: #fff;
+      background: #d97904;
+      padding: 5px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .event-card>p {
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-height: 1.6;
+      font-size: clamp(12px, 1.8vw, 15px);
+    }
+
+    @media (max-width: 1024px) {
+      #events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      #events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #grid-pagination {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    #grid-pagination button {
+      border: 0;
+      background: #eee;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #555;
+      min-width: 48px;
+      font-size: clamp(12px, 2vw, 14px);
+      margin: 3px;
+      transition: background-color .2s, color .2s;
+    }
+
+    #grid-pagination button.active {
+      background: #d97904;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    #grid-pagination button:focus-visible {
+      outline: 2px solid #d97904;
+      outline-offset: 2px;
+    }
+
+    /* 모바일용 Swiper (필요 시) */
+    .events-swiper {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      height: auto !important;
+    }
+
+    .events-swiper .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .events-swiper .swiper-slide {
+      height: auto !important;
+    }
+
+    .events-swiper .event-card img {
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 공통 Swiper */
+    .swiper {
+      width: 100%;
+      max-width: 2000px;
+      height: clamp(360px, 50vw, 660px);
+      margin: clamp(12px, 2vw, 20px) auto;
+    }
+
+    .swiper-slide {
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(8px, 1.8vw, 10px);
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none !important;
+    }
+
+    /* =========================================
+================= Details ==================
+========================================= */
+    #details {
+      width: 100%;
+      height: 100%;
+      background: #f5f0e1;
+      background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, .05) 0px, rgba(255, 255, 255, .05) 2px, transparent 2px, transparent 10px);
+      padding: clamp(20px, 3vw, 30px);
+      text-align: center;
+    }
+
+    .details-p {
+      font-size: clamp(14px, 2vw, 17px);
+      margin-bottom: clamp(10px, 2vw, 15px);
+      line-height: 1.8;
+    }
+
+    .detail-swiper {
+      width: 90%;
+      max-width: 1200px;
+      height: clamp(360px, 55vw, 680px);
+    }
+
+    .detail-card {
+      width: clamp(200px, 26vw, 300px);
+      height: clamp(360px, 42vw, 570px);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .detail-card:hover {
+      transform: scale(1.03);
+    }
+
+    .detail-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+      border: 1px solid rgba(90, 90, 90, .2);
+    }
+
+    .detail-card p {
+      position: absolute;
+      bottom: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(217, 121, 4, .6);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.2;
+      width: 60%;
+    }
+
+    #details .swiper-button-next,
+    #details .swiper-button-prev {
+      display: flex !important;
+      width: clamp(44px, 6vw, 60px);
+      height: clamp(44px, 6vw, 60px);
+      background: #d97904;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      margin: -8px 0;
+    }
+
+    #details .swiper-button-next::after {
+      content: '›';
+      font-size: clamp(28px, 5vw, 40px);
+      text-align: center;
+      padding-bottom: 5px;
+    }
+
+    #details .swiper-button-prev::after {
+      content: '‹';
+      font-size: clamp(28px, 5vw, 40px);
+      text-align: center;
+      padding-bottom: 5px;
+    }
+
+    #details .swiper-button-prev {
+      left: -60px;
+    }
+
+    #details .swiper-button-next {
+      right: -60px;
+    }
+
+    @media (max-width: 768px) {
+
+      #details .swiper-button-prev,
+      #details .swiper-button-next {
+        top: auto;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-60px);
+        background: #d97904;
+        color: #fff;
+      }
+
+      #details .swiper-button-next {
+        transform: translateX(10px);
+      }
+    }
+
+    #details .section-title {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    #details .section-title::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 4px;
+      margin: 10px auto 0;
+      border-radius: 999px;
+      background: #d97904;
+    }
+
+    /* 설명문 카듭화 */
+    #details .details-p {
+      display: inline-block;
+      background: rgba(255, 255, 255, .65);
+      border: 1px solid rgba(255, 255, 255, .9);
+      backdrop-filter: blur(2px);
+      padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 18px);
+      border-radius: 12px;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .details-meta {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .details-meta .chip {
+      font-size: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #f0d7b3;
+      color: #8a5a11;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Lightbox number */
+    .lb-data .lb-number::before {
+      content: "슬라이드 ";
+    }
+
+    .lb-data .lb-number {
+      font-size: clamp(14px, 2.2vw, 20px) !important;
+      color: #fff !important;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    /* =========================================
+================= PPT ======================
+========================================= */
+    #ppt {
+      width: 100%;
+      padding: clamp(16px, 3vw, 20px);
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+    #ppt h2 {
+      font-size: clamp(18px, 3vw, 25px);
+      margin-bottom: clamp(12px, 2.6vw, 20px);
+    }
+
+    #ppt p {
+      font-size: clamp(14px, 2vw, 17px);
+      margin-bottom: clamp(10px, 2.6vw, 15px);
+      line-height: 1.8;
+    }
+
+    .ppt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 2.6vw, 20px);
+      justify-items: center;
+      align-items: stretch;
+    }
+
+    @media (max-width: 1024px) {
+      .ppt-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .ppt-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ppt-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .ppt-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, .2);
+    }
+
+    .ppt-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+    }
+
+    .ppt-thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .ppt-chip {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #d97904;
+      color: #fff;
+      padding: 6px 15px;
+      border-radius: 10px;
+      font-size: clamp(12px, 1.8vw, 15px);
+    }
+
+    .ppt-body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .ppt-body>*+* {
+      margin-top: 6px;
+    }
+
+    .ppt-body h3 {
+      font-size: clamp(14px, 2.2vw, 18px);
+    }
+
+    .ppt-body p {
+      font-size: clamp(12px, 1.9vw, 15px);
+      line-height: 1.6;
+    }
+
+    .ppt-actions {
+      margin-top: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 1rem 0;
+    }
+
+    .ppt-actions .btn {
+      background: #d97904;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(12px, 1.9vw, 15px);
+    }
+
+    .ppt-actions .btn.ghost {
+      background: #fff;
+      border: 1px solid #d97904;
+      color: #d97904;
+    }
+
+    /* 모바일 Load More */
+    @media (max-width: 900px) {
+      .ppt-card {
+        display: none;
+      }
+
+      .ppt-card.visible {
+        display: flex;
+      }
+
+      #loadMorePPT {
+        appearance: none;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 20px;
+        background: #d97904;
+        color: #fff;
+        font-size: clamp(12px, 1.9vw, 15px);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+      }
+    }
+
+    @media (min-width: 901px) {
+      #loadMorePPT {
+        display: none !important;
+      }
+    }
+
+    /* =========================================
+================ Contact ===================
+========================================= */
+    #contact {
+      background: #2b2b2b;
+      color: #fff;
+      text-align: center;
+      padding: clamp(20px, 3vw, 30px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #contact p {
+      font-size: clamp(14px, 2.5vw, 20px);
+      margin-bottom: clamp(16px, 3vw, 30px);
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: clamp(12px, 3vw, 20px);
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-icons div {
+      width: clamp(180px, 22vw, 280px);
+      height: clamp(180px, 22vw, 280px);
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(12px, 2vw, 17px);
+      cursor: pointer;
+      transition: .25s;
+      line-height: 1.3;
+    }
+
+    .icon {
+      font-size: clamp(18px, 2.8vw, 25px);
+    }
+
+    .contact-icons div span {
+      text-align: center;
+      margin-top: 4px;
+      color: #222;
+    }
+
+    .contact-icons div:hover {
+      transform: scale(1.06);
+    }
+
+    footer {
+      padding: clamp(10px, 2vw, 13px) clamp(14px, 2.4vw, 20px);
+      border-top: 1px solid #fff;
+      background: #2b2b2b;
+      text-align: right;
+      color: #fff;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: clamp(12px, 1.9vw, 15px);
+      line-height: 1.6;
+    }
+
+    /* =========================================
+================== Modal ===================
+========================================= */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      justify-content: center;
+      align-items: center;
+      z-index: 5000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: clamp(8px, 2vw, 10px);
+      border-radius: 10px;
+      position: relative;
+      max-width: min(90vw, 800px);
+      width: min(92vw, 800px);
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 4px;
+      right: clamp(12px, 3vw, 30px);
+      font-size: clamp(36px, 6vw, 70px);
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .modal-close:hover {
+      opacity: .7;
+    }
+
+    .modal-content img {
+      max-height: 70svh;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .modal-desc {
+      text-align: left;
+      color: #333;
+      font-size: clamp(13px, 2vw, 16px);
+      line-height: 1.7;
+      margin: -5px 0 5px;
+      max-height: 50svh;
+      overflow: auto;
+    }
+
+    #modal-work,
+    #modal-original {
+      background: #d97904 !important;
+      color: #fff;
+      border: none;
+      font-size: clamp(12px, 1.9vw, 15px);
+      border-radius: 30px;
+      padding: 10px 20px;
+      margin-left: 5px;
+    }
+
+    #modal-work:hover,
+    #modal-original:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
+
+    #modal-work:active,
+    #modal-original:active {
+      transform: translateY(1px);
+    }
+
+    /* ================================
+    Mobile Minimal-Change Overrides
+    - 데스크톱 느낌을 더 유지
+    - 글자/여백 급격한 축소 완화
+    - 그리드 붕괴 보수적으로
+================================ */
+    @media (max-width: 480px) {
+
+      /* 1) 전체 타이포 축소폭 제한 */
+      html {
+        font-size: 15px;
+      }
+
+      /* 기본 16 → 15로만 살짝 */
+      body {
+        line-height: 1.5;
+      }
+
+      /* 2) 섹션 여백/레이아웃 안정화 */
+      section {
+        padding: 16px;
+        min-height: auto;
+      }
+
+      /* 3) 헤더 고정 크기(점프 방지) */
+      header {
+        height: 64px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav ul.menu {
+        width: 88vw;
+      }
+
+      /* 열릴 때 너무 넓지 않게 */
+
+      /* 4) 히어로(인트로) 과도한 축소 방지 */
+      .intro h1 {
+        font-size: clamp(24px, 6.5vw, 32px);
+        margin-top: 72px;
+      }
+
+      .intro p {
+        font-size: 14px;
+      }
+
+      .intro button {
+        font-size: 15px;
+        padding: 10px 16px;
+      }
+
+      /* 5) About 카드/프로필 유지 */
+      .profile img {
+        width: 220px;
+        height: 242px;
+      }
+
+      #about .intro {
+        padding: 18px;
+      }
+
+      #about .intro p {
+        font-size: 14px;
+      }
+
+      /* 6) 타임라인 점/선 두께 축소 (시각 균형) */
+      .timeline {
+        padding-left: 22px;
+      }
+
+      .timeline::before {
+        left: 8px;
+        width: 3px;
+      }
+
+      .timeline-item {
+        padding-left: 30px;
+      }
+
+      .timeline-item::before {
+        left: -12px;
+        width: 14px;
+        height: 14px;
+      }
+
+      /* 7) 개인지표 카드 간격/폰트 고정에 가깝게 */
+      .pm-block {
+        padding: 18px;
+      }
+
+      .pm-label {
+        font-size: 16px;
+      }
+
+      .pm-bullets li,
+      .pm-meter .pm-meter-text,
+      .pm-meter .pm-percent {
+        font-size: 14px;
+      }
+
+      .pm-meter .pm-bar {
+        height: 8px;
+      }
+
+      /* 8) Web 섹션 카드 높이 과도하게 크지 않게 */
+      .section1_card {
+        min-height: 420px;
+      }
+
+      .section1_card h3 {
+        font-size: 18px;
+      }
+
+      .section1_card p {
+        font-size: 14px;
+      }
+
+      /* 9) 탭 스위처: 줄바꿈 시 버튼 크기 통일 */
+      .section-btn {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+
+      .section-left h3 {
+        font-size: 20px;
+      }
+
+      .section-left p {
+        font-size: 15px;
+      }
+
+      .section-left .more-btn {
+        font-size: 15px;
+        padding: 10px 20px;
+      }
+
+      /* 10) A/B 프로토타입 카드: iframe 안정적 */
+      .card-head {
+        padding: 14px;
+      }
+
+      .title {
+        font-size: 16px;
+      }
+
+      .sub {
+        font-size: 13px;
+      }
+
+      .ratio {
+        padding-top: 56.25%;
+      }
+
+      /* 16:9 유지 */
+      iframe {
+        border-radius: 10px;
+      }
+
+      /* 11) 이벤트 그리드: 2→1단계로만 축소 */
+      #events-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .event-card>h3 {
+        font-size: 14px;
+      }
+
+      .event-card>p {
+        font-size: 14px;
+      }
+
+      /* 12) PPT 카드: 텍스트 가독 위주 */
+      .ppt-body {
+        padding: 12px;
+      }
+
+      .ppt-body h3 {
+        font-size: 16px;
+      }
+
+      .ppt-body p {
+        font-size: 14px;
+      }
+
+      /* 13) 연락처 아이콘: 너무 커지지 않게 */
+      .contact-icons div {
+        width: 220px;
+        height: 220px;
+      }
+
+      .icon {
+        font-size: 20px;
+      }
+
+      #contact p {
+        font-size: 16px;
+      }
+    }
+
+    /* 추가: 초소형 기기 최종 안전망 (≤360px) */
+    @media (max-width: 360px) {
+      html {
+        font-size: 14px;
+      }
+
+      .profile img {
+        width: 200px;
+        height: 220px;
+      }
+
+      .section1_card {
+        min-height: 380px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Eunhye Go Portfolio</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#web">Web</a></li>
+        <li><a href="#prototype">Prototype</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#ppt">PPT</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== INTRO ===== -->
+  <section class="intro">
+    <img src="images/intro6.jpg" alt="intro" />
+    <h1>고은혜</h1>
+    <p>UI/UX 디자이너 / 웹 디자이너</p>
+    <button id="intro-btn">포트폴리오 보기</button>
+    <div class="cta-hint">
+      <div class="arrow-up">⇑</div>
+      <div class="click-text">CLICK</div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="profile"><img src="images/ID_photo.jpg" alt="증명사진" /></div>
+    <div class="intro">
+      <p>
+        <strong>웹과 모바일을 넘나들며, 사람들이 편하고 즐겁게 머물 수 있는 경험을 만드는 디자이너 고은혜입니다.</strong><br>
+        이번 포트폴리오는 단순히 기술적인 능력을 보여주는 것에 그치지 않고,<br> 제가 디자인을 배우고 성장해온 과정을 담고 있습니다.<br>
+        시작한 지는 오래되지 않았지만, 새로운 시도를 즐기며 배움을 두려워하지 않고<br> 저만의 색을 차곡차곡 쌓아가고 있습니다.<br>
+        특히 피그마를 통해 아이디어를 빠르게 시각화하고<br> 흐름을 정리하며 하나의 시스템으로 발전시키는 과정에서 큰 재미를 느꼈습니다.<br>
+        그 과정 속에서 디자인은 화면을 꾸미는 일이 아니라<br> 사용자와 소통하는 일이라는 것을 깊이 깨달았습니다.<br>
+        <strong>아직 성장하는 단계이지만, 열정과 감각만큼은 자신 있게 보여드릴 수 있습니다.<br>
+          이 포트폴리오에는 저의 시도와 배움이 담겨 있으니 즐겁게 봐주시면 감사하겠습니다.</strong>
+      </p>
+    </div>
+    <div class="about-container">
+      <div class="education">
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>고양일고등학교</h4>
+            <p>입학기간: 2017년 / 졸업기간: 2020년</p>
+          </div>
+          <div class="timeline-item">
+            <h4>수원과학대학교</h4>
+            <p>입학기간: 2020년 / 졸업기간: 2022년</p>
+          </div>
+        </div>
+      </div>
+      <div class="career">
+        <h3>Career</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>메가커피 의정부 중앙역점</h4>
+            <p>근무기간 / 담당업무: 25.03 ~ 25.08 / 바리스타</p>
+          </div>
+          <div class="timeline-item">
+            <h4>강강술래 상계점</h4>
+            <p>근무기간 / 담당업무: 24.08 ~ 25.02 / 인포메이션</p>
+          </div>
+          <div class="timeline-item">
+            <h4>카페 풍경으로</h4>
+            <p>근무기간 / 담당업무: 22.08 ~ 24.04 / 바리스타, 매장 관리</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="certs">
+      <h3>Certs</h3>
+      <div class="cert-card">GTQ(그래픽기술자격) 1급<span class="cert-date">취득일: 2025-05-16</span></div>
+      <div class="cert-card">GTQi(그래픽기술자격) 1급<span class="cert-date">취득일: 2025-08-23</span></div>
+      <div class="cert-card">정보기술자격(ITQ)<span class="cert-date">취득일: 2012-03-02</span></div>
+      <div class="cert-card">운전면허자격증<span class="cert-date">취득일: 2023-05-23</span></div>
+    </div>
+
+    <!-- Skills + Abilities -->
+    <div class="about-container">
+      <div class="skills-container">
+        <h3>Skills</h3>
+        <div class="skill-bar-wrapper">
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="85%">HTML</div>
+          </div><span class="percent">85%</span>
+        </div>
+        <div class="skill-bar-wrapper">
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="70%">CSS</div>
+          </div><span class="percent">70%</span>
+        </div>
+        <div class="skill-bar-wrapper">
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="50%">JS</div>
+          </div><span class="percent">50%</span>
+        </div>
+        <div class="skill-bar-wrapper">
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="90%">Photoshop</div>
+          </div><span class="percent">90%</span>
+        </div>
+        <div class="skill-bar-wrapper">
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="80%">Illustrator</div>
+          </div><span class="percent">80%</span>
+        </div>
+        <div class="skill-bar-wrapper">
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="95%">Figma</div>
+          </div><span class="percent">95%</span>
+        </div>
+      </div>
+
+      <div class="abilities-container">
+        <h3>Abilities</h3>
+        <p>👆 보유 능력에 마우스를 올려보시면<br>설명이 나타납니다!</p>
+        <div class="abilities">
+          <div class="ability-circle">문제 정의<br>및 능력<span class="desc">문제 해결을 통한 결과물 완성</span></div>
+          <div class="ability-circle">정보수집<br>능력<span class="desc">관련 정보 분석으로 디자인 방향 수립</span></div>
+          <div class="ability-circle">와이어프레임<br>프로타이핑<span class="desc">아이디어 시각화 및 서비스 흐름 설계</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Personal Meters ===== -->
+    <div class="personal-meters">
+
+      <!-- 섹션 제목 (선택) -->
+      <h3 class="pm-title">Key-points</h3>
+
+      <!-- 장점 (텍스트) -->
+      <div class="pm-block">
+        <div class="pm-label">✨ Strengths</div>
+        <ul class="pm-bullets" style="margin-top: 2rem;">
+          <li>빠른 습득력: 새로운 툴이나 환경을 금방 익힘</li>
+          <li>꼼꼼함: 세세한 부분까지 확인하려는 성향</li>
+          <li>분석력: 문제나 요구사항을 빠르게 파악</li>
+          <li>실용적 접근: 불필요한 군더더기보다 효율 중시</li>
+        </ul>
+      </div>
+
+      <!-- 특기 (게이지) -->
+      <div class="pm-block">
+        <div class="pm-label">🎨 Specialties</div>
+
+        <div class="pm-meter" data-value="82" data-text="문서화 & 시각화 (PPT, Notion)" style="margin-top: 2rem;">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+
+        <div class="pm-meter" data-value="70" data-text="UI/UX Design Practice (Portfolio Projects)">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+
+        <div class="pm-meter" data-value="85" data-text="한글 작성 & 글 정리 능력">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+      </div>
+
+      <!-- MBTI (칩 + 게이지 + 설명) -->
+      <div class="pm-block">
+        <div class="pm-label">🎭 MBTI</div>
+
+        <!-- MBTI 알파벳 칩 -->
+        <div class="pm-chips">
+          <span class="pm-chip">I</span>
+          <span class="pm-chip">S</span>
+          <span class="pm-chip">T</span>
+          <span class="pm-chip">P</span>
+        </div>
+
+        <!-- 게이지 -->
+        <div class="pm-meter slim" data-value="51" data-text="Introversion (I)" style="margin-top: 1.5rem;">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+        <div class="pm-meter slim" data-value="96" data-text="Sensing (S)">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+        <div class="pm-meter slim" data-value="59" data-text="Thinking (T)">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+        <div class="pm-meter slim" data-value="56" data-text="Judging (P)">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+
+        <!-- MBTI 설명 불릿 -->
+        <ul class="pm-bullets" style="margin-top: 2rem;">
+          <li>🔎 <strong>분석력</strong>: 문제 상황을 빠르게 파악하고 핵심만 도출</li>
+          <li>⚡ <strong>실행력</strong>: 직접 부딪혀 개선하는 스타일, 빠른 피드백 반영</li>
+          <li>🛠️ <strong>적응력</strong>: 새로운 환경과 툴을 금방 익히고 활용</li>
+          <li>🤝 <strong>냉정한 판단</strong>: 감정보다 효율과 데이터를 중시</li>
+        </ul>
+      </div>
+
+      <!-- 타자 속도 (게이지 + 설명) -->
+      <div class="pm-block">
+        <div class="pm-label">⌨️ Typing</div>
+        <p class="pm-desc">
+          빠른 타자 속도는 단순한 숫자가 아니라 업무 효율과 협업에 직접적인 도움이 됩니다.<br><br>
+          <strong>효율성</strong> : 아이디어를 빠르게 기록해 놓치지 않고 문서화 가능<br>
+          <strong>협업</strong> : 회의 중 메모와 피드백 반영 속도가 빨라 팀워크에 기여<br>
+          <strong>정확성</strong> : 빠른 속도뿐 아니라 낮은 오타율로 꼼꼼함을 유지<br>
+          <strong>신뢰성</strong> : 3분간 측정된 결과로 안정적인 타이핑 습관 증명<br><br>
+          <strong>Korean: 537타/분 · English: 202타/분</strong><br>
+          (한글과컴퓨터 타자 검증 사이트, 3분 기준)
+        </p>
+
+        <!-- 한국어 -->
+        <div class="pm-meter" data-value="90" data-text="Korean (537타 / 분)">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+
+        <!-- 영어 -->
+        <div class="pm-meter" data-value="75" data-text="English (202타 / 분)">
+          <span class="pm-meter-text"></span>
+          <div class="pm-bar">
+            <div class="pm-fill"></div>
+          </div>
+          <span class="pm-percent"></span>
+        </div>
+      </div>
+
+      <!-- Fun Facts -->
+      <div class="pm-block">
+        <div class="pm-label">🐾 Fun Facts</div>
+        <ul class="pm-bullets" style="margin-top: 2rem;">
+          <li>고양이와 함께 지내며 책임감과 따뜻함을 배워가고 있습니다.</li>
+          <li>베이킹을 통해 꼼꼼함과 인내심을 배우고 있습니다.</li>
+          <li>정리와 청소를 하며 마음을 정돈하고 집중력을 유지합니다</li>
+          <li>애니메이션과 영화를 보며 새로운 영감과 아이디어를 얻습니다.</li>
+        </ul>
+      </div>
+  </section>
+
+  <!-- ===== WEB ===== -->
+  <section id="web">
+    <h2 class="section-title">Web Projects</h2>
+    <div class="section-btns">
+      <button class="section-btn active" data-target="old">기존 구현</button>
+      <button class="section-btn" data-target="new">개선 구현</button>
+    </div>
+
+    <div class="sections">
+      <div class="section active" id="old">
+        <div class="section-left">
+          <h3>기존 구현</h3>
+          <p>모바일 전용 UI/UX 시안을 디자인 중심으로 제작했습니다.</p>
+          <p>아이콘·버튼 조합과 기본 메뉴, 상품 슬라이더, 로그인/회원가입 폼 등 핵심 기능을 구현했으며, 초기 구조와 디자인 가능성을 실험하는 단계였습니다.</p>
+          <p>⚠️ 본 페이지는 <strong>반응형이 아니므로,</strong> 화면 크기는 줄여서 사용하시되 해상도에 따라 조정해 주세요.</p>
+          <button class="more-btn" data-href="index.html">자세히 보기</button>
+        </div>
+        <div class="section-right">
+          <img src="images/web1.png" alt="기존 구현 이미지" />
+        </div>
+      </div>
+
+      <div class="section" id="new">
+        <div class="section-left">
+          <h3>개선 작업 진행</h3>
+          <p>사용자 관점에서 UI/UX를 강화하고 기능을 개선했습니다.</p>
+          <p>아이콘과 레이아웃을 정리해 시각적 통일성을 확보하고, 접근성, 반응성, 찜/좋아요 기능 등 사용성을 개선하였습니다.</p>
+          <p>기존보다 인터랙션을 부드럽게 하고, 직관적이고 깔끔한 디자인을 제공합니다.</p>
+          <p>⚠️ 본 페이지는 <strong>반응형이 아니므로,</strong> 화면 크기는 줄여서 사용하시되 해상도에 따라 조정해 주세요.</p>
+          <button class="more-btn" data-href="index_v2.html">자세히 보기</button>
+        </div>
+        <div class="section-right">
+          <img src="images/web2.png" alt="개선 작업 진행 이미지" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Prototype ===== -->
+  <div class="wrap" id="prototype">
+    <h1>온보딩 프로토타입 2종 비교</h1>
+    <p class="desc">실제 클릭 가능한 Figma 프로토타입을 바로 체험해보세요. A/B를 전환하며 비교할 수 있습니다.<br>⚠️ 프로토타입은 Figma 서버에서 불러오기 때문에
+      처음 실행 시 로딩이 다소 걸릴 수 있습니다.</p>
+
+    <div class="bar">
+      <!-- A/B 토글 -->
+      <div class="toggle" role="tablist" aria-label="Prototype toggle">
+        <button id="btnA" role="tab" aria-selected="true" class="active">프로토타입 A</button>
+        <button id="btnB" role="tab" aria-selected="false">프로토타입 B</button>
+      </div>
+
+      <!-- 현재 보고 있는 링크로 이동할 수 있는 액션 -->
+      <div class="actions">
+        <a id="btnOpenFile" class="btn" target="_blank" rel="noreferrer noopener">작업화면 보기</a>
+        <a id="btnOpenEmbed" class="btn" target="_blank" rel="noreferrer noopener">새 탭에서 체험 실행</a>
+      </div>
+    </div>
+
+    <!-- 카드 1개 + iFrame 1개 (토글로 src 교체) -->
+    <div class="card" id="card">
+      <div class="card-head">
+        <span class="chip">⚡ Prototype • 2025</span>
+        <div class="title" id="cardTitle">온보딩 프로토타입 A</div>
+        <div class="sub" id="cardSub">회원가입 흐름을 간소화하고 첫 실행 경험(FTUE)에서 이탈을 줄이는 데 초점을 맞춘 버전입니다.</div>
+      </div>
+      <div class="view">
+        <div class="ratio">
+          <iframe id="figmaFrame" title="Figma Prototype" allowfullscreen></iframe>
+        </div>
+        <div id="warnBox" class="warn" style="display:none; margin-top:10px;">
+          임베드가 보이지 않나요? 링크가 <b>/design</b> 이면 클릭이 안 됩니다. Figma에서 <b>Prototype 탭 → 시작 프레임 선택 → Share → Copy link</b> 로
+          <b>/proto</b> 링크를 복사해 주세요. 또한 Share 권한을 <b>Anyone with the link → Can view</b> 로 설정해야 외부 페이지에서 보입니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ EVENTS ============ -->
+  <section id="events" aria-labelledby="events-title">
+    <h2 id="events-title" class="section-title">Event Pages</h2>
+    <p class="events-p">📌 원하시는 이미지를 클릭하시면모달 창에서<br> 원본 이미지, Figma 작업 화면, 각 이미지에 대한 설명글을 확인할 수 있습니다.</p>
+
+    <!-- 필터 -->
+    <div class="event-filters" role="tablist" aria-label="event filters">
+      <button class="filter-btn active" data-type="all" aria-selected="true" role="tab">전체</button>
+      <button class="filter-btn" data-type="production" aria-selected="false" role="tab">제작</button>
+      <button class="filter-btn" data-type="clone" aria-selected="false" role="tab">클론</button>
+      <button class="filter-btn" data-type="reinterpret" aria-selected="false" role="tab">재해석</button>
+    </div>
+
+    <!-- 데스크톱: 그리드 + 페이지네이션 -->
+    <div class="events-desktop" aria-hidden="false">
+      <div id="events-grid" class="grid-container" aria-live="polite">
+
+        <!-- 제작 1 -->
+        <article class="event-card" data-type="production"
+          data-original="banner_design/Original_file/orig-jjakjeop_1.png" data-work="https://buly.kr/4Qns0hY"
+          data-desc="
+            카페에서 근무했을 당시 직접 만들었던 시즌 한정 홍보물을 리뉴얼 작업했습니다. 만들었던 당시에 느꼈던 아쉬움을 보완해 Figma로 시각적 완성도를 높였고, 실제 매장에서 사용할 수 있는 실용성과 현장감에 중점을 두었습니다.">
+          <img src="banner_design/jjakjeop_1.jpg" alt="제작 1">
+          <h3>제작 1</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 딸기 사용을 시각적으로 강조<br>
+            목표 : 매장에서 바로 활용 가능한 실용적 홍보물 제작
+          </p>
+        </article>
+
+        <!-- 제작 2 -->
+        <article class="event-card" data-type="production"
+          data-original="banner_design/Original_file/orig-jjakjeop_2.jpg" data-work="https://buly.kr/D3f04RL"
+          data-desc="카페에서 시그니처 음료를 홍보하기 위해 직접 제작했던 포스터를 리뉴얼했습니다. 음료의 매력 포인트를 직관적으로 표현하고, 한눈에 고객이 끌릴 수 있는 분위기를 살리는 데 집중했습니다.">
+          <img src="banner_design/jjakjeop_2.jpg" alt="제작 2">
+          <h3>제작 2</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 음료의 매력을 직관적으로 전달<br>
+            목표 : 한눈에 시선을 끄는 비주얼 구현
+          </p>
+        </article>
+
+        <!-- 제작 3 -->
+        <article class="event-card" data-type="production"
+          data-original="banner_design/Original_file/orig-jjakjeop_3.png" data-work="./images/Process_my-work.png"
+          data-desc="원본 디자인을 참고하되, 제 아이디어를 적극 반영하여 새로운 홍보물을 만들었습니다. 강렬한 색감과 스트리트 패션 무드를 담아내어 에너지 넘치는 분위기를 표현했습니다.">
+          <img src="banner_design/jjakjeop_3.png" alt="제작 3">
+          <h3>제작 3</h3>
+          <p class="desc-desktop">
+            툴 : Illustrator / 참여도 : 100%<br>
+            포인트 : 강렬한 색감과 스트리트 패션 감성<br>
+            목표 : 원본을 재해석한 새로운 홍보물 제작
+          </p>
+        </article>
+
+        <!-- 제작 4 -->
+        <article class="event-card" data-type="production"
+          data-original="banner_design/Original_file/orig-jjakjeop_4.png" data-work="images/Process_my-work.png"
+          data-desc="원본 디자인을 참고하되, 제 아이디어를 반영하여 새로운 홍보물을 제작했습니다.
+배경은 실내 창문과 가을 풍경을 활용해 따뜻하고 감성적인 분위기를 표현했으며,
+가을 낙엽 아이콘을 추가해 계절감을 살렸습니다.
+글씨체와 컬러는 원본을 따라가되, 전체 레이아웃은 새롭게 구성하여
+고급스럽고 차분한 느낌의 프로모션 이미지를 완성했습니다.">
+          <img src="banner_design/jjakjeop_4.png" alt="제작 4">
+          <h3>제작 4</h3>
+          <p class="desc-desktop">
+            툴 : Photoshop / 참여도 : 100%<br>
+            포인트 : 가을 풍경과 낙엽 아이콘을 활용한 감성적 무드 / 따뜻한 색감과 균형 잡힌 레이아웃<br>
+            목표 : 원본을 재해석해, 추석과 가을 분위기를 동시에 담은 새로운 홍보물 제작
+          </p>
+        </article>
+
+        <!-- 클론 1 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_1.jpg"
+          data-work="https://buly.kr/HHdB3SU"
+          data-desc="따뜻한 감성을 담은 ‘행운의 편지’ 캠페인 디자인을 Figma로 클론 제작했습니다. 감성적인 분위기를 시각적으로 전달하는 방법을 배우며, 분위기 표현력에 대한 경험을 쌓을 수 있었습니다.">
+          <img src="banner_design/clone_1.jpg" alt="클론제작 1">
+          <h3>클론제작 1</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 따뜻한 감성 전달<br>
+            목표 : 감성적 무드를 살린 클론 디자인 학습
+          </p>
+        </article>
+
+        <!-- 클론 2 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_2.jpg"
+          data-work="./images/Process_clone.png"
+          data-desc="패턴과 그라데이션을 활용한 세일 홍보물을 Illustrator로 클론 제작했습니다. 작업을 통해 광고 디자인에서 자주 활용되는 시각적 기법을 이해하고 실습할 수 있었습니다.">
+          <img src="banner_design/clone_2.jpg" alt="클론제작 2">
+          <h3>클론제작 2</h3>
+          <p class="desc-desktop">
+            툴 : Illustrator / 참여도 : 100%<br>
+            포인트 : 패턴과 그라데이션 활용<br>
+            목표 : 광고 디자인 기법 학습
+          </p>
+        </article>
+
+        <!-- 클론 3 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_3.jpg"
+          data-work="https://buly.kr/CskEX4Y"
+          data-desc="Figma로 참여형 이벤트 페이지를 클론 제작했습니다. 단순히 시각적 요소를 예쁘게 만드는 것에 그치지 않고, 사용자 참여를 유도하는 인터랙션 디자인을 이해하는 데 초점을 맞췄습니다.">
+          <img src="banner_design/clone_3.jpg" alt="클론제작 3">
+          <h3>클론제작 3</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 사용자 참여 유도 디자인<br>
+            목표 : 참여형 인터페이스 경험 학습
+          </p>
+        </article>
+
+        <!-- 클론 4 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_4.jpg"
+          data-work="https://buly.kr/FhOME8E"
+          data-desc="Photoshop과 Figma를 활용하여 ‘50% OFF’와 같은 핵심 문구를 강조한 프로모션 이미지를 제작했습니다. 색상과 타이포그래피를 활용해 메시지 전달력을 높이고, 이미지와 텍스트의 조화로운 배치를 연습했습니다.">
+          <img src="banner_design/clone_4.jpg" alt="클론제작 4">
+          <h3>클론제작 4</h3>
+          <p class="desc-desktop">
+            툴 : Photoshop, Figma / 참여도 : 100%<br>
+            포인트 : 강한 메시지 전달 + 색상·타이포그래피 실험<br>
+            목표 : 시각적 임팩트와 조화로운 레이아웃 배치 연습
+          </p>
+        </article>
+
+        <!-- 클론 5 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_5.jpg"
+          data-work="./images/Process_clone1.png"
+          data-desc="Photoshop을 활용해 iPhone 17 Series 얼리버드 사전예약 프로모션 이미지를 제작했습니다. ‘얼리버드 사전예약’이라는 핵심 메시지를 강조하고, 다채로운 색상의 타이포그래피로 시선을 끌 수 있도록 구성했습니다. 제품 이미지와 텍스트가 시각적으로 조화롭게 배치되도록 연습했습니다.">
+          <img src="banner_design/clone_5.png" alt="클론제작 5">
+          <h3>클론제작 5</h3>
+          <p class="desc-desktop">
+            툴 : Photoshop, Figma / 참여도 : 100%<br>
+            포인트: 핵심 메시지(사전예약) 강조 + 컬러풀한 타이포그래피 실험<br>
+            목표: 제품 홍보성과 동시에 강한 시각적 임팩트
+          </p>
+        </article>
+
+        <!-- 클론 6 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_6.jpg"
+          data-work="./images/Process_clone2.png"
+          data-desc="Photoshop으로 Galaxy S25 Ultra 프로모션 이미지를 제작했습니다. ‘S25 구매는 지금이 기회’라는 강렬한 문구를 핑크 포인트 컬러로 강조하여 메시지 전달력을 높였습니다. 또한, 할인 혜택·부가 서비스 아이콘을 하단에 배치해 실질적인 혜택 전달에 초점을 맞췄습니다.">
+          <img src="banner_design/clone_6.png" alt="클론제작 6">
+          <h3>클론제작 6</h3>
+          <p class="desc-desktop">
+            툴 : Photoshop, Figma / 참여도 : 100%<br>
+            포인트: 강조 컬러(핑크)로 메시지 시각화 + 혜택 아이콘 정리<br>
+            목표: 직관적이고 소비자 친화적인 프로모션 이미지
+          </p>
+        </article>
+
+        <!-- 클론 7 -->
+        <article class="event-card" data-type="clone" data-original="banner_design/Original_file/orig-clone_7.jpg"
+          data-work="./images/Process_clone3.png"
+          data-desc="Photoshop을 활용하여 iPhone 17 PRO 사전예약 홍보 이미지를 제작했습니다. ‘개통 첫날 당일배송’이라는 핵심 문구를 크게 배치하여 시선을 집중시켰고, 제품 고급스러움을 살릴 수 있도록 블랙과 오렌지 톤 대비를 활용했습니다.">
+          <img src="banner_design/clone_7.png" alt="클론제작 7">
+          <h3>클론제작 7</h3>
+          <p class="desc-desktop">
+            툴 : Photoshop, Figma / 참여도 : 100%<br>
+            포인트: 고급스러운 대비 색상(블랙+오렌지) + 핵심 메시지 강조<br>
+            목표: 빠른 배송 혜택과 프리미엄 이미지를 직관적으로 전달
+          </p>
+        </article>
+
+        <!-- 재해석 1 -->
+        <article class="event-card" data-type="reinterpret"
+          data-original="banner_design/Original_file/orig-cloneplus_1.png" data-work="https://buly.kr/EzjKrhH"
+          data-desc="기존 딸기 홍보물을 참고해 Figma로 다시 제작했습니다. 풍성한 딸기 이미지를 배치하고 선명도를 높여 시각적 임팩트를 강화했으며, 정보 아이콘을 강조해 메시지를 직관적으로 전달할 수 있도록 구성했습니다.">
+          <img src="banner_design/cloneplus_1.png" alt="재해석 1">
+          <h3>재해석 1</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 딸기 이미지 강조와 정보 아이콘 활용<br>
+            목표 : 시각적으로 강한 임팩트와 직관적 메시지 전달
+          </p>
+        </article>
+
+        <!-- 재해석 2 -->
+        <article class="event-card" data-type="reinterpret"
+          data-original="banner_design/Original_file/orig-cloneplus_2.png" data-work="https://buly.kr/E79XPNs"
+          data-desc="Figma를 활용해 따뜻한 분위기를 유지하면서 노트, 연필 등의 그래픽 요소를 추가해 재미를 주었습니다. 이를 통해 사용자의 참여 의지를 끌어낼 수 있는 디자인 방식을 실습했습니다.">
+          <img src="banner_design/cloneplus_2.jpg" alt="재해석 2">
+          <h3>재해석 2</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 따뜻한 분위기 + 재미 요소<br>
+            목표 : 참여 의지 자극하는 그래픽 활용
+          </p>
+        </article>
+
+        <!-- 재해석 3 -->
+        <article class="event-card" data-type="reinterpret"
+          data-original="banner_design/Original_file/orig-cloneplus_3.png" data-work="https://buly.kr/3u3aW4Y"
+          data-desc="기존 디자인을 바탕으로 Figma로 ‘쿨링 효과’를 강조하는 방향으로 재제작했습니다. 물방울, 온도계 아이콘을 추가하여 제품의 특징을 직관적으로 표현하고 전달력을 높였습니다.">
+          <img src="banner_design/cloneplus_3.jpg" alt="재해석 3">
+          <h3>재해석 3</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 아이콘으로 쿨링 효과 강조<br>
+            목표 : 제품 특징을 직관적으로 표현
+          </p>
+        </article>
+
+        <!-- 재해석 4 -->
+        <article class="event-card" data-type="reinterpret"
+          data-original="banner_design/Original_file/orig-cloneplus_4.png" data-work="https://buly.kr/A466qdE"
+          data-desc="신규 회원을 대상으로 한 웰컴 쿠폰 페이지를 Figma로 재구성했습니다. 쿠폰을 달력처럼 시각화하고 ‘1+1’ 문구를 크게 배치해 혜택을 직관적으로 느낄 수 있도록 설계했습니다.">
+          <img src="banner_design/cloneplus_4.jpg" alt="재해석 4">
+          <h3>재해석 4</h3>
+          <p class="desc-desktop">
+            툴 : Figma / 참여도 : 100%<br>
+            포인트 : 달력형 쿠폰 디자인 + ‘1+1’ 강조<br>
+            목표 : 가입 유도 강화와 혜택 직관적 전달
+          </p>
+        </article>
+
+      </div>
+      <div id="grid-pagination" aria-live="polite"></div>
+    </div>
+
+    <div class="events-mobile" aria-hidden="true">
+      <div class="swiper events-swiper">
+        <div class="swiper-wrapper" id="events-swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASE STUDIES ===== -->
+  <section id="case-studies">
+    <h2 class="section-title">Case Studies</h2>
+    <p class="case-studies-p">💡결과물만으로는 드러나지 않는 고민과 과정을 보여주기 위해 작업 과정 기록 섹션을 추가했습니다.<br>
+      이벤트 페이지와 웹 구현 섹션에서는 작업의 분위기와 맥락을 풀어내고, 툴·참여도·핵심 포인트 같은 정보를 한눈에 정리하였고,<br>
+      Case Studies에서는 문제 해결 과정을 중심으로, 제 디자인 접근 방식을 더욱 세심하게 전달하고자 했습니다.</p>
+    <div class="cs-list">
+      <article class="cs-card">
+        <div class="cs-hero">
+          <img src="images/web1.png" alt="웹 구현 초기 버전" />
+          <div class="cs-badges">
+            <span class="badge role">Role: UI/UX Design</span>
+            <span class="badge tools">HTML · CSS · JS · Figma</span>
+            <span class="badge time">초기제작(2025.06)</span>
+          </div>
+        </div>
+        <div class="cs-body">
+          <h3 class="cs-title">웹 구현 초기 — 디자인 중심 구현</h3>
+          <p class="cs-sub">페르소나·스케치 기반의 ‘디자인 중심’ 구현으로 기능적 한계를 확인했습니다.<br>
+            📑 자세한 페르소나와 스케치는 PPT 페이지에서 확인 가능합니다.</p>
+          <ul class="cs-meta">
+            <li><b>문제 :</b> 기능과 접근성을 충분히 고려하지 않아 오류가 발생하고 구조가 복잡해짐</li>
+            <li><b>자료 :</b> 페르소나, 직접 그린 스케치 & 짜집기 도안</li>
+            <li><b>학습 :</b> 프로젝트를 통해 정보 구조화, 반응성, 상호작용이 사용자 경험을 좌우한다는 점을 실감</li>
+          </ul>
+          <details class="cs-details">
+            <summary>프로세스</summary>
+            <div class="cs-steps">
+              <div class="step">
+                <h4>준비</h4>
+                <p>사용자의 페르소나를 정의하고, 손스케치와 와이어프레임 스터디를 통해 기본 구조를 구상했습니다.</p>
+              </div>
+              <div class="step">
+                <h4>제작</h4>
+                <p>디자인을 우선으로 HTML/CSS 기반의 정적 화면을 구현했습니다.</p>
+              </div>
+              <div class="step">
+                <h4>회고</h4>
+                <p>중복 스타일과 복잡한 레이아웃으로 오류가 발생했고, 기능과 접근성 개선의 필요성을 확인했습니다.</p>
+              </div>
+            </div>
+          </details>
+          <div class="cs-actions">
+            <a class="btn" href="index.html" target="_blank">Live Demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-card">
+        <div class="cs-hero">
+          <img src="images/web2.png" alt="웹 구현 개선 버전" />
+          <div class="cs-badges">
+            <span class="badge role">Role: UI/UX Design</span>
+            <span class="badge tools">HTML · CSS · JS · Figma</span>
+            <span class="badge time">리뉴얼(2025.09)</span>
+          </div>
+        </div>
+        <div class="cs-body">
+          <h3 class="cs-title">웹 구현 리뉴얼 — 기능 강화 및 디자인 단순화</h3>
+          <p class="cs-sub">디자인을 단순화하고 기능을 추가·보완하여 사용감을 개선했습니다.</p>
+          <ul class="cs-meta">
+            <li><b>목표 :</b> 누구나 쉽게 이해할 수 있는 직관적인 UI를 만들고, 오류를 줄이며 글자가 잘 보이도록 하는 것</li>
+            <li><b>접근 :</b> 화면 요소를 정리하고 정보의 순서를 다시 짜서, 필요한 곳에 간단한 인터랙션을 넣음</li>
+            <li><b>결과 :</b> 화면 구조가 단순해져서 사용자가 헷갈리지 않고 흐름을 따라가기 쉬워짐</li>
+
+          </ul>
+          <details class="cs-details">
+            <summary>프로세스</summary>
+            <div class="cs-steps">
+              <div class="step">
+                <h4>IA 정리</h4>
+                <p>사용자가 쉽게 이해하고 쓸 수 있도록 정보 구조를 새로 정리했습니다.</p>
+              </div>
+              <div class="step">
+                <h4>UI 단순화</h4>
+                <p>글자 크기와 대비를 조정하고 공간 배치를 정리해 불필요한 요소를 없앴습니다.</p>
+              </div>
+              <div class="step">
+                <h4>인터랙션</h4>
+                <p>찜, 좋아요, 로그인, 회원가입 같은 간단한 기능을 넣어 실제 사용 흐름을 점검했습니다.</p>
+              </div>
+            </div>
+          </details>
+          <div class="cs-actions">
+            <a class="btn" href="index_v2.html" target="_blank">Live Demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-card">
+        <div class="cs-hero">
+          <img src="banner_design/jjakjeop_1.jpg" alt="딸기 신메뉴 홍보 리뉴얼" />
+          <div class="cs-badges">
+            <span class="badge role">Role: Visual · UI Design</span>
+            <span class="badge tools">Figma · Photoshop</span>
+            <span class="badge time">초기(2020) → 리뉴얼(2025)</span>
+          </div>
+        </div>
+        <div class="cs-body">
+          <h3 class="cs-title">딸기 신메뉴 홍보 — PowerPoint → Photoshop 및 Figma로 업그레이드</h3>
+          <p class="cs-sub">“아무것도 모르던 시절의 첫 시도”를 ‘지금의 눈’으로 다듬다</p>
+          <ul class="cs-meta">
+            <li><b>의도 :</b> 2020년에 제작했던 홍보물이 실제 매장에서 사용되어 좋은 반응을 얻었고, 이번에는 당시 작업을 지금의 실력으로 다시 표현하고 싶었습니다.</li>
+            <li><b>접근 :</b> 핵심 메시지가 더 잘 전달되도록 과일 비주얼과 타이포를 강화하고, 레이아웃을 새롭게 구성했습니다.</li>
+            <li><b>의미 :</b> 이번 리뉴얼은 단순히 디자인을 새로 만든 것이 아니라, 과거의 성과를 더 설득력 있게 시각화하고 지금의 디자인 역량을 보여주기 위한 작업이었습니다.</li>
+          </ul>
+          <details class="cs-details">
+            <summary>프로세스</summary>
+            <div class="cs-steps">
+              <div class="step">
+                <h4>회고</h4>
+                <p>처음에는 파워포인트로 억지로 제작해 한계가 뚜렷했습니다. 비주얼 완성도와 메시지 전달력이 부족했습니다.</p>
+              </div>
+              <div class="step">
+                <h4>리뉴얼</h4>
+                <p>Photoshop과 Figma를 활용해 색감과 레이아웃을 개선하고, 재료가 잘 보이도록 가시성을 강화했습니다.</p>
+              </div>
+              <div class="step">
+                <h4>반응</h4>
+                <p>이번 리뉴얼은 단순한 수정이 아니라, 과거 작업을 지금의 눈으로 다시 표현하여 성장한 디자인 역량을 보여주기 위한 과정이었습니다.</p>
+              </div>
+            </div>
+          </details>
+          <div class="cs-actions">
+            <a class="btn" href="https://buly.kr/4Qns0hY" target="_blank">Redesign</a>
+            <a class="btn ghost" href="banner_design/Original_file/orig-jjakjeop_1.png" target="_blank">Original
+              (2020)</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-card">
+        <div class="cs-hero">
+          <img src="banner_design/jjakjeop_2.jpg" alt="시그니처 메뉴 홍보 리뉴얼(크림라떼/아이스크림 라떼)" />
+          <div class="cs-badges">
+            <span class="badge role">Role: Visual · UI Design</span>
+            <span class="badge tools">Figma · Photoshop</span>
+            <span class="badge time">초기(2020) → 리뉴얼(2025)</span>
+          </div>
+        </div>
+        <div class="cs-body">
+          <h3 class="cs-title">시그니처 홍보 — 메뉴와 재료를 직관적으로 전달</h3>
+          <p class="cs-sub">명확한 레이아웃으로 브랜드 감각을 살린 리뉴얼 작업입니다.</p>
+          <ul class="cs-meta">
+            <li><b>의도 :</b> 초기 홍보물보다 세련된 비주얼과 명확한 메시지를 담아 시그니처 메뉴를 강조하고자 했습니다.</li>
+            <li><b>접근 :</b> 타이포그래피와 색감 대비를 조정하고, 메뉴와 재료가 한눈에 들어오도록 구성했습니다.</li>
+            <li><b>의미 :</b> 이번 리뉴얼은 단순한 보완이 아니라, 과거 작업을 현재의 실력으로 다시 풀어내며 디자인 완성도를 높인 과정이었습니다.</li>
+          </ul>
+          <details class="cs-details">
+            <summary>프로세스</summary>
+            <div class="cs-steps">
+              <div class="step">
+                <h4>회고</h4>
+                <p>초기 버전은 이미지와 텍스트가 따로 노는 느낌이 있었고, 색감 조화가 부족했습니다.</p>
+              </div>
+              <div class="step">
+                <h4>리뉴얼</h4>
+                <p>이미지를 통일하고 글자 색상을 조정해 시각적 조화를 높였으며, 포인트 요소를 추가해 완성도를 끌어올렸습니다.</p>
+              </div>
+              <div class="step">
+                <h4>의미</h4>
+                <p>시그니처 메뉴의 매력을 직관적으로 전달하고, 과거 작업을 성장한 시선으로 다시 표현할 수 있었습니다.</p>
+              </div>
+            </div>
+          </details>
+          <div class="cs-actions">
+            <a class="btn" href="https://buly.kr/D3f04RL" target="_blank">Redesign</a>
+            <a class="btn ghost" href="banner_design/Original_file/orig-jjakjeop_2.jpg" target="_blank">Original
+              (2020)</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="cs-actions" style="text-align:center; margin-top:1rem;">
+      <button id="loadMore" class="btn">더보기</button>
+    </div>
+  </section>
+
+  <!-- ===== DETAILS ===== -->
+  <section id="details">
+    <h2 class="section-title">Detail Pages</h2>
+    <p class="details-p">📂 이미지를 클릭하시면 새 창에서 제품의 상세페이지를 확인할 수 있습니다.<br>추가로, Figma 작업 화면은 바로 열람하거나 다운로드하여 디자인 과정과 레이아웃을
+      자세히 살펴보실 수 있습니다.<br>⚠️ 모든 링크는 2025년 9월 기준이며, 원본 페이지는 시간이 지나면 사라질 수 있습니다.</p>
+    <div class="swiper detail-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/Number_in-Cosmetics/Number_in-Cosmetics.html','_blank')">
+          <img src="Detailed_Page/Number_in-Cosmetics/Number_in-Cosmetics.jpg" alt="Number in Cosmetics">
+          <p>화장품<br>Number in<br>(넘버즈인)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/ETUDE-Tint/ETUDE-Tint.html','_blank')">
+          <img src="Detailed_Page/ETUDE-Tint/ETUDE-Tint.jpg" alt="ETUDE Tint">
+          <p>화장품<br>ETUDE<br>(에뛰드)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/Philimili-hairclip/Philimili-hairclip.html','_blank')">
+          <img src="Detailed_Page/Philimili-hairclip/Philimili-hairclip.jpg" alt="Philimili hairclip">
+          <p>뷰티소품<br>Philimili<br>(필리밀리)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/09WOMEN-Clothing/09WOMEN-Clothing.html','_blank')">
+          <img src="Detailed_Page/09WOMEN-Clothing/09WOMEN-Clothing.jpg" alt="09WOMEN Clothing">
+          <p>의류<br>09WOMEN<br>(공구우먼)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/McGahn-Clothing/McGahn-Clothing.html','_blank')">
+          <img src="Detailed_Page/McGahn-Clothing/McGahn-Clothing.jpg" alt="McGahn Clothing">
+          <p>의류<br>McGahn<br>(맥건)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/Musinsa_standard-Clothing/Musinsa_standard-Clothing.html','_blank')">
+          <img src="Detailed_Page/Musinsa_standard-Clothing/Musinsa_standard-Clothing.jpg"
+            alt="Musinsa standard Clothing">
+          <p>의류<br>Musinsa Standard<br>(무신사 스탠다드)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/LIVART-bad/LIVART-bad.html','_blank')">
+          <img src="Detailed_Page/LIVART-bad/LIVART-bad.jpg" alt="LIVART bad">
+          <p>가구류<br>LIVART bad<br>(리바트 침대)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/Coupang-Microwave_oven/Coupang-Microwave_oven.html','_blank')">
+          <img src="Detailed_Page/Coupang-Microwave_oven/Coupang-Microwave_oven.jpg" alt="Coupang Microwave oven">
+          <p>가전류<br>Navien Microwave<br>(나비엔 전자렌지)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/Coupang-vacuum/Coupang-vacuum.html','_blank')">
+          <img src="Detailed_Page/Coupang-vacuum/Coupang-vacuum.jpg" alt="Coupang vacuum">
+          <p>가전류<br>Prettycare vacuum<br>(프리티케어 청소기)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/LG-Water_purifier/LG-Water_purifier.html','_blank')">
+          <img src="Detailed_Page/LG-Water_purifier/LG-Water purifier.jpg" alt="LG Water purifier">
+          <p>가전류<br>LG Water purifier<br>(LG 정수기)</p>
+        </div>
+
+        <div class="swiper-slide detail-card"
+          onclick="window.open('Detailed_Page/FOODG-Ganjang gejang/FOODG-Ganjang gejang.html','_blank')">
+          <img src="Detailed_Page/FOODG-Ganjang gejang/FOODG-Ganjang gejang.jpg" alt="FOODG Ganjang gejang">
+          <p>음식<br>Foodg Gejang<br>(푸드지 간장게장)</p>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- ===== PPT ===== -->
+  <section id="ppt">
+    <h2>PPT Work</h2>
+    <p>🖥️ 이 PPT는 제가 웹 프로젝트를 어떻게 접근하고 완성해 나가는지 보여주는 자료로,<br> 단순한 결과물이 아니라 기획부터 구현까지 이어지는 과정을 함께 담았습니다.<br>🔎 전체보기 버튼을
+      누르시면 한 장씩 확대해서 보실 수 있습니다.</p>
+    <div class="ppt-grid">
+      <!-- PPT 1 -->
+      <article class="ppt-card">
+        <div class="ppt-thumb">
+          <img src="images/ppt1.png" alt="UI/UX 요구분석 가이드" loading="lazy">
+          <span class="ppt-chip">요구분석</span>
+        </div>
+        <div class="ppt-body">
+          <h3>UI/UX 요구분석 가이드</h3>
+          <p>아이디어를 프로토타입으로 검증, 최적 네비게이션 설계</p>
+          <div class="ppt-actions">
+            <a class="btn" href="images/ppt1-1.jpg" data-lightbox="ppt1">🔎 전체 보기</a>
+
+            <a href="images/ppt1-2.jpg" data-lightbox="ppt1"></a>
+            <a href="images/ppt1-3.jpg" data-lightbox="ppt1"></a>
+            <a href="images/ppt1-4.jpg" data-lightbox="ppt1"></a>
+            <a href="images/ppt1-5.jpg" data-lightbox="ppt1"></a>
+            <a href="images/ppt1-6.jpg" data-lightbox="ppt1"></a>
+            <a href="images/ppt1-7.jpg" data-lightbox="ppt1"></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PPT 2 -->
+      <article class="ppt-card">
+        <div class="ppt-thumb">
+          <img src="images/ppt2.png" alt="UI/UX 콘셉트 기획" loading="lazy">
+          <span class="ppt-chip">기획</span>
+        </div>
+        <div class="ppt-body">
+          <h3>UI/UX 콘셉트 기획</h3>
+          <p>브랜드 톤·무드 확립과 핵심 경험(KE) 정의</p>
+          <div class="ppt-actions">
+            <a class="btn" href="images/ppt2-1.jpg" data-lightbox="ppt2">🔎 전체 보기</a>
+
+            <a href="images/ppt2-2.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-3.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-4.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-5.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-6.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-7.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-8.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-9.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-10.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-11.jpg" data-lightbox="ppt2"></a>
+            <a href="images/ppt2-12.jpg" data-lightbox="ppt2"></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PPT 3 -->
+      <article class="ppt-card">
+        <div class="ppt-thumb">
+          <img src="images/ppt3.png" alt="UI 아키텍처 설계" loading="lazy">
+          <span class="ppt-chip">아키텍처</span>
+        </div>
+        <div class="ppt-body">
+          <h3>UI 아키텍처 설계</h3>
+          <p>정보구조·내비게이션·플로우 맵 설계</p>
+          <div class="ppt-actions">
+            <a class="btn" href="images/ppt3-1.jpg" data-lightbox="ppt3">🔎 전체 보기</a>
+
+            <a href="images/ppt3-2.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-3.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-4.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-5.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-6.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-7.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-8.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-9.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-10.jpg" data-lightbox="ppt3"></a>
+            <a href="images/ppt3-11.jpg" data-lightbox="ppt3"></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PPT 4 -->
+      <article class="ppt-card">
+        <div class="ppt-thumb">
+          <img src="images/ppt4.png" alt="UI 구현 표준 가이드" loading="lazy">
+          <span class="ppt-chip">디자인 시스템</span>
+        </div>
+        <div class="ppt-body">
+          <h3>UI 구현 표준 가이드</h3>
+          <p>토큰·컴포넌트·패턴 가이드라인</p>
+          <div class="ppt-actions">
+            <a class="btn" href="images/ppt4-1.jpg" data-lightbox="ppt4">🔎 전체 보기</a>
+
+            <a href="images/ppt4-2.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-3.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-4.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-5.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-6.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-7.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-8.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-9.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-10.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-11.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-12.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-13.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-14.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-15.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-16.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-17.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-18.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-19.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-20.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-21.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-22.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-23.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-24.jpg" data-lightbox="ppt4"></a>
+            <a href="images/ppt4-25.jpg" data-lightbox="ppt4"></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PPT 5 -->
+      <article class="ppt-card">
+        <div class="ppt-thumb">
+          <img src="images/ppt5.png" alt="콘셉트기획서" loading="lazy">
+          <span class="ppt-chip">디자인 시스템</span>
+        </div>
+        <div class="ppt-body">
+          <h3>콘셉트기획서</h3>
+          <p>디자인 콘셉트 원칙·스마일 가이드 규정</p>
+          <div class="ppt-actions">
+            <a class="btn" href="images/ppt5-1.jpg" data-lightbox="ppt5">🔎 전체 보기</a>
+
+            <a href="images/ppt5-2.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-3.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-4.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-5.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-6.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-7.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-8.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-9.jpg" data-lightbox="ppt5"></a>
+            <a href="images/ppt5-10.jpg" data-lightbox="ppt5"></a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- 모바일 더보기 버튼 -->
+    <button id="loadMorePPT">더보기</button>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p>“관심 가져주셔서 감사합니다. 함께할 기회를 기다리겠습니다.”</p>
+    <div class="contact-icons">
+      <div title="전화"><span class="icon">📞</span><span>phone<br>010-7393-3710</span></div>
+      <div title="이메일"><span class="icon">✉️</span><span>E-mail<br>eunhye010615<br>@naver.com</span></div>
+      <div title="카카오톡"><span class="icon">💬</span><span>Kakao ID<br>e_eun615</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Goeunhye UI/UX Portfolio. All rights reserved.</p>
+    <p>Some content refined with AI (ChatGPT). Images © owners, for reference only.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-img" src="" alt="" />
+      <div id="modal-desc" class="modal-desc"></div>
+      <div>
+        <button id="modal-original">원본 보기</button>
+        <button id="modal-work">작업 화면 보기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    // [pre-intro] 초기 상태: 네비 숨김 + 프리인트로 진입
+    document.body.classList.add('pre-intro');
+    document.documentElement.classList.add('pre-intro');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // ========== helpers ==========
+      const $ = (sel, root = document) => root.querySelector(sel);
+      const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+      const clamp = (n, min = 0, max = 100) => Math.max(min, Math.min(max, n));
+      const prefersReduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+
+      // ========== nav & intro ==========
+      const navEl = $('nav');
+      const hamburgerEl = $('.hamburger');
+      const introBtn = $('#intro-btn');
+
+      if (navEl) {
+        navEl.setAttribute('aria-hidden', 'true');
+        navEl.setAttribute('inert', '');
+      }
+      if (hamburgerEl) hamburgerEl.setAttribute('aria-hidden', 'true');
+
+      // scroll lock on
+      const preventScroll = e => e.preventDefault();
+      const keydownHandler = e => {
+        if ([32, 33, 34, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) e.preventDefault();
+      };
+      document.body.classList.add('lock-scroll');
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+      document.addEventListener('keydown', keydownHandler, { passive: false });
+
+      // [intro action] 시작 버튼 해제 + about 이동
+      if (introBtn) {
+        introBtn.addEventListener('click', () => {
+          document.body.classList.remove('pre-intro', 'lock-scroll');
+          document.documentElement.classList.remove('pre-intro');
+          if (navEl) { navEl.removeAttribute('aria-hidden'); navEl.removeAttribute('inert'); }
+          if (hamburgerEl) hamburgerEl.removeAttribute('aria-hidden');
+          document.removeEventListener('wheel', preventScroll);
+          document.removeEventListener('touchmove', preventScroll);
+          document.removeEventListener('keydown', keydownHandler);
+          $('#about')?.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // ========== nav: hamburger & anchor smooth ==========
+      const menu = $('nav ul.menu');
+      if (hamburgerEl && menu) {
+        hamburgerEl.addEventListener('click', () => menu.classList.toggle('active'));
+      }
+      $$('nav ul.menu li a').forEach(link => {
+        link.addEventListener('click', e => {
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          e.preventDefault();
+          $(href)?.scrollIntoView({ behavior: 'smooth' });
+          if (menu?.classList.contains('active')) menu.classList.remove('active');
+        });
+      });
+
+      // ========== skills: gsap bar fill ==========
+      if (window.gsap?.utils?.toArray) {
+        gsap.utils.toArray('.skill-fill').forEach(bar => {
+          const w = bar.dataset.percent || '0%';
+          gsap.fromTo(bar, { width: 0 }, {
+            width: w,
+            duration: prefersReduce ? 0 : 0.1,
+            scrollTrigger: { trigger: bar, start: 'top 80%' }
+          });
+        });
+      }
+
+      // ========== swiper: prototypes ==========
+      if ($('.mySwiper1')) {
+        new Swiper('.mySwiper1', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          pagination: { el: '.mySwiper1 .swiper-pagination', clickable: true },
+          navigation: { nextEl: '.mySwiper1 .swiper-button-next', prevEl: '.mySwiper1 .swiper-button-prev' },
+          breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 2 } }
+        });
+      }
+
+      // ========== nav tabs: web projects ==========
+      const sectionButtons = $$('.section-btn');
+      const sections = $$('.section');
+      if (sectionButtons.length && sections.length) {
+        sectionButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            sectionButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const target = btn.dataset.target;
+            sections.forEach(sec => sec.id === target ? sec.classList.add('active') : sec.classList.remove('active'));
+          });
+        });
+      }
+
+      // ========== buttons: '자세히 보기' (data-href) ==========
+      $$('.more-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const href = btn.getAttribute('data-href');
+          if (href) window.open(href, '_blank');
+        });
+      });
+
+      // ========== events: HTML 기반 렌더(데스크톱 그리드/모바일 스와이프) ==========
+      (function eventsFromHTML() {
+        const grid = $('#events-grid');
+        const pagination = $('#grid-pagination');
+        const filterBtns = $$('#events .filter-btn');
+        const swiperWrap = $('#events-swiper-wrapper');
+        if (!grid || !pagination || !swiperWrap) return;
+
+        let currentType = 'all';
+        let currentPage = 1;
+        const PER_PAGE = 6;
+        const allCards = $$('.event-card', grid);
+
+        const getFiltered = () => currentType === 'all'
+          ? allCards
+          : allCards.filter(c => c.dataset.type === currentType);
+
+        // desktop render
+        function renderDesktop() {
+          const filtered = getFiltered();
+          const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+          if (currentPage > totalPages) currentPage = totalPages;
+
+          allCards.forEach(c => c.style.display = 'none');
+          const start = (currentPage - 1) * PER_PAGE;
+          const items = filtered.slice(start, start + PER_PAGE);
+          items.forEach(c => c.style.display = '');
+
+          if (currentType === 'all') {
+            buildPagination(totalPages);
+            pagination.style.display = 'flex';
+          } else {
+            pagination.innerHTML = '';
+            pagination.style.display = 'none';
+          }
+
+          attachModalHandlers(items);
+        }
+
+        function buildPagination(totalPages) {
+          pagination.innerHTML = '';
+          for (let i = 1; i <= totalPages; i++) {
+            const b = document.createElement('button');
+            b.textContent = i;
+            if (i === currentPage) b.classList.add('active');
+            b.addEventListener('click', () => { currentPage = i; renderDesktop(); });
+            pagination.appendChild(b);
+          }
+        }
+
+        // mobile render
+        let mobileSwiper = null;
+        function renderMobile() {
+          const filtered = getFiltered();
+          swiperWrap.innerHTML = filtered.map(card => {
+            const img = card.querySelector('img')?.getAttribute('src') || '';
+            const title = card.querySelector('h3')?.textContent || '';
+            const teaser = card.querySelector('.desc-mobile')?.textContent || '';
+            const original = card.dataset.original || '#';
+            const work = card.dataset.work || '#';
+            const fullDesc = card.dataset.desc || '';
+            return `
+            <div class="swiper-slide">
+              <article class="event-card"
+                        data-type="${card.dataset.type}"
+                        data-img="${img}"
+                        data-original="${original}"
+                        data-work="${work}"
+                        data-desc="${fullDesc}">
+                <img src="${img}" alt="${title}">
+                <h3>${title}</h3>
+                <p class="desc-mobile">${teaser}</p>
+              </article>
+            </div>`;
+          }).join('');
+
+          if (mobileSwiper) mobileSwiper.destroy(true, true);
+          mobileSwiper = new Swiper('.events-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            autoHeight: true,
+            pagination: { el: '.events-swiper .swiper-pagination', clickable: true },
+            breakpoints: { 481: { slidesPerView: 2, spaceBetween: 16 } }
+          });
+
+          attachModalHandlers($$('.events-swiper .event-card'));
+        }
+
+        // modal handlers
+        function attachModalHandlers(cards) {
+          const modal = $('#modal');
+          if (!modal) return;
+          const modalImg = $('#modal-img');
+          const modalDesc = $('#modal-desc');
+          const btnOriginal = $('#modal-original');
+          const btnWork = $('#modal-work');
+          const closeBtn = modal.querySelector('.modal-close');
+
+          cards.forEach(card => {
+            const img = card.getAttribute('data-img') || card.querySelector('img')?.getAttribute('src') || '';
+            const original = card.getAttribute('data-original') || card.dataset.original || '#';
+            const work = card.getAttribute('data-work') || card.dataset.work || '#';
+            const fullDesc = card.getAttribute('data-desc') || card.dataset.desc || '';
+            card.addEventListener('click', () => {
+              if (modalImg) modalImg.src = img;
+              if (modalDesc) modalDesc.textContent = fullDesc;
+              if (btnOriginal) btnOriginal.onclick = e => { e.stopPropagation(); if (original && original !== '#') window.open(original, '_blank'); };
+              if (btnWork) btnWork.onclick = e => { e.stopPropagation(); if (work && work !== '#') window.open(work, '_blank'); };
+              modal.style.display = 'flex';
+            });
+          });
+
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => modal.style.display = 'none');
+            modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+          }
+        }
+
+        // esc close
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') $('#modal')?.style && ($('#modal').style.display = 'none');
+        });
+
+        // filter
+        function setActive(btn) {
+          filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+        }
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            setActive(btn);
+            currentType = btn.dataset.type; // all | production | clone | reinterpret
+            currentPage = 1;
+            renderDesktop();
+            renderMobile();
+          });
+        });
+
+        // first render
+        renderDesktop();
+        renderMobile();
+      })();
+
+      // ========== swiper: details ==========
+      if ($('.detail-swiper')) {
+        new Swiper('.detail-swiper', {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          navigation: { nextEl: '#details .swiper-button-next', prevEl: '#details .swiper-button-prev' },
+          breakpoints: {
+            0: { slidesPerView: 1.5, spaceBetween: 8, centeredSlides: false },
+            768: { slidesPerView: 1.5, spaceBetween: 20, centeredSlides: false },
+            1024: { slidesPerView: 3.5, spaceBetween: 10, centeredSlides: false }
+          }
+        });
+      }
+
+      // ========== ppt: responsive show more ==========
+      (function pptLoadMore() {
+        const btn = $('#loadMorePPT');
+        const cards = $$('#ppt .ppt-card');
+        if (!btn || cards.length === 0) return;
+
+        const update = () => {
+          const isMobile = window.innerWidth <= 900;
+          if (isMobile) {
+            cards.forEach(c => c.classList.remove('visible'));
+            cards.slice(0, 2).forEach(c => c.classList.add('visible'));
+            btn.style.display = 'block';
+          } else {
+            cards.forEach(c => c.classList.add('visible'));
+            btn.style.display = 'none';
+          }
+        };
+
+        update();
+        window.addEventListener('resize', update);
+
+        btn.addEventListener('click', () => {
+          const hidden = cards.filter(c => !c.classList.contains('visible'));
+          hidden.slice(0, 2).forEach(c => c.classList.add('visible'));
+          if (cards.every(c => c.classList.contains('visible'))) btn.style.display = 'none';
+        });
+      })();
+
+      // ========== case studies: load more ==========
+      (function caseStudiesLoadMore() {
+        const section = $('#case-studies');
+        if (!section) return;
+        const cards = $$('.cs-list .cs-card', section);
+        const btn = $('#loadMore', section);
+        const INITIAL_VISIBLE = 2;
+        const BATCH = 2;
+
+        if (!btn || cards.length === 0) return;
+        if (cards.length <= INITIAL_VISIBLE) { btn.remove(); return; }
+
+        cards.slice(INITIAL_VISIBLE).forEach(c => c.setAttribute('hidden', ''));
+        btn.setAttribute('aria-controls', 'case-studies');
+        btn.setAttribute('aria-expanded', 'false');
+
+        const revealNext = (batch = BATCH) => {
+          const hidden = cards.filter(c => c.hasAttribute('hidden')).slice(0, batch);
+          hidden.forEach(card => {
+            card.removeAttribute('hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(8px)';
+            requestAnimationFrame(() => {
+              card.style.transition = 'opacity .28s ease, transform .28s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+              card.addEventListener('transitionend', () => {
+                card.style.transition = ''; card.style.opacity = ''; card.style.transform = '';
+              }, { once: true });
+            });
+          });
+
+          const anyHidden = cards.some(c => c.hasAttribute('hidden'));
+          if (!anyHidden) {
+            btn.setAttribute('aria-expanded', 'true');
+            btn.style.display = 'none';
+            btn.disabled = true;
+          } else {
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        btn.addEventListener('click', () => {
+          btn.setAttribute('aria-busy', 'true');
+          revealNext();
+          setTimeout(() => btn.removeAttribute('aria-busy'), 300);
+        });
+      })();
+
+      // ========== personal meters: text/percent + fill animation ==========
+      $$('.pm-meter').forEach(m => {
+        const val = clamp(Number(m.dataset.value) || 0);
+        const text = m.dataset.text || '';
+        const tEl = $('.pm-meter-text', m);
+        const pEl = $('.pm-percent', m);
+        const fill = $('.pm-fill', m);
+        if (tEl) tEl.textContent = text;
+        if (pEl) pEl.textContent = val + '%';
+        if (prefersReduce) { fill.style.transition = 'none'; fill.style.width = val + '%'; }
+        else requestAnimationFrame(() => { fill.style.width = val + '%'; });
+      });
+    });
+
+    lightbox.option({
+      albumLabel: "%1 / %2",
+      wrapAround: true,
+      alwaysShowNavOnTouchDevices: true
+    });
+
+    /* ===== ① 실제 링크 (지금처럼 embed.figma.com/proto/... 유지 OK) ===== */
+    const FIGMA_URL_A = "https://embed.figma.com/proto/ojVFN6cMpbxBgYTD9vBohV/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%98%A8%EB%B3%B4%EB%94%A9-?node-id=1-346&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A346&embed-host=share";
+    const FIGMA_URL_B = "https://embed.figma.com/proto/5VbJFmMXNoNA2u23iaCUTm/%EC%97%90%EC%9D%B4%EB%B8%94%EB%A6%AC-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85_%EC%95%84%EC%9D%B4%ED%8F%B0-16?node-id=0-115&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share";
+
+    // (선택) 카드 상단 텍스트
+    const META = {
+      A: { title: "온보딩 프로토타입 A", sub: "회원가입 흐름을 간소화하고 첫 실행 경험(FTUE)에서 이탈 최소화." },
+      B: { title: "온보딩 프로토타입 B", sub: "소셜 로그인 중심 + 툴팁 안내로 학습 비용 감소." }
+    };
+
+    /* ===== ② 헬퍼: 임베드/파일 링크 (수정본) ===== */
+    const isFigmaUrl = (u) =>
+      /^https?:\/\/(?:www\.)?figma\.com\/(?:proto|design|file)\//.test(u || "") ||
+      /^https?:\/\/embed\.figma\.com\//.test(u || "");
+
+    const toEmbed = (u) => {
+      if (!u) return "";
+      const url = String(u).trim();
+      // 이미 embed.figma.com이면 그대로 사용 (이중 임베드 방지)
+      if (/^https?:\/\/embed\.figma\.com\//.test(url)) return url;
+      // 일반 figma 링크는 공식 임베드 형식으로 감싸기
+      if (/^https?:\/\/(?:www\.)?figma\.com\/(?:proto|design|file)\//.test(url)) {
+        return "https://www.figma.com/embed?embed_host=share&url=" + encodeURIComponent(url);
+      }
+      return "";
+    };
+
+    const toFile = (u) => {
+      if (!u) return "";
+      // /proto/ → /file/ 로만 안전 치환 (embed.figma.com·www 모두 동작)
+      return String(u).includes("/proto/") ? String(u).replace("/proto/", "/file/") : String(u);
+    };
+
+    /* ===== ③ DOM ===== */
+    const $frame = document.getElementById("figmaFrame");
+    const $btnA = document.getElementById("btnA");
+    const $btnB = document.getElementById("btnB");
+    const $openFile = document.getElementById("btnOpenFile");
+    const $openEmbed = document.getElementById("btnOpenEmbed");
+    const $title = document.getElementById("cardTitle");
+    const $sub = document.getElementById("cardSub");
+    const $warn = document.getElementById("warnBox");
+
+    /* ===== ④ 상태 & 렌더 ===== */
+    let active = "A";
+
+    function render() {
+      const url = active === "A" ? FIGMA_URL_A : FIGMA_URL_B;
+
+      // 경고: 유효하지 않은 주소만 표시 (embed.figma.com 허용)
+      const bad = !url || !isFigmaUrl(url);
+      if ($warn) $warn.style.display = bad ? "block" : "none";
+
+      // iframe src 세팅 (이중 임베드 방지 로직 포함)
+      $frame.src = toEmbed(url);
+
+      // 액션 버튼 링크
+      if ($openFile) $openFile.href = toFile(url);
+      if ($openEmbed) $openEmbed.href = toEmbed(url);
+
+      // 카드 텍스트
+      const m = META[active];
+      if (m) { if ($title) $title.textContent = m.title; if ($sub) $sub.textContent = m.sub; }
+
+      // 토글 상태
+      $btnA.classList.toggle("active", active === "A");
+      $btnA.setAttribute("aria-selected", active === "A" ? "true" : "false");
+      $btnB.classList.toggle("active", active === "B");
+      $btnB.setAttribute("aria-selected", active === "B" ? "true" : "false");
+    }
+
+    // 초기 렌더 & 이벤트
+    render();
+    $btnA.addEventListener("click", () => { active = "A"; render(); });
+    $btnB.addEventListener("click", () => { active = "B"; render(); });
+  </script>
+</body>
+
+</html>
